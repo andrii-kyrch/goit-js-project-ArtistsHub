@@ -1,17 +1,14 @@
 const refs = {
-  menu: document.querySelector('.menu'),
   openMenuBtn: document.querySelector('.open-menu-btn'),
   closeMenuBtn: document.querySelector('.close-menu-btn'),
+  menu: document.querySelector('.menu'),
 };
 
-refs.openMenuBtn.addEventListener('click', () => {
-  refs.menu.classList.add('is-open');
-  refs.openMenuBtn.classList.add('active');
-  refs.closeMenuBtn.classList.add('active');
-});
+function toggleMenu(isOpen) {
+  refs.menu.classList.toggle('is-open', isOpen);
+  refs.openMenuBtn.classList.toggle('active');
+  refs.closeMenuBtn.classList.toggle('active', isOpen);
+}
 
-refs.closeMenuBtn.addEventListener('click', () => {
-  refs.menu.classList.remove('is-open');
-  refs.openMenuBtn.classList.remove('active');
-  refs.closeMenuBtn.classList.remove('active');
-});
+refs.openMenuBtn.addEventListener('click', () => toggleMenu(true));
+refs.closeMenuBtn.addEventListener('click', () => toggleMenu(false));
