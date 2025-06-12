@@ -1,14 +1,23 @@
 const refs = {
-  openMenuBtn: document.querySelector('.open-menu-btn'),
-  closeMenuBtn: document.querySelector('.close-menu-btn'),
-  menu: document.querySelector('.menu'),
+  mobileMenuOpenBtn: document.querySelector('.mobile-menu-open-btn'),
+  mobileMenuCloseBtn: document.querySelector('.mobile-menu-close-btn'),
+  mobileMenu: document.querySelector('.mobile-menu'),
+  mobileMenuLinks: document.querySelectorAll('.mobile-menu-link'),
 };
 
-function toggleMenu(isOpen) {
-  refs.menu.classList.toggle('is-open', isOpen);
-  refs.openMenuBtn.classList.toggle('active');
-  refs.closeMenuBtn.classList.toggle('active', isOpen);
-}
+refs.mobileMenuOpenBtn.addEventListener('click', () => {
+  refs.mobileMenu.classList.add('is-open');
+  document.body.classList.add('no-scroll');
+});
 
-refs.openMenuBtn.addEventListener('click', () => toggleMenu(true));
-refs.closeMenuBtn.addEventListener('click', () => toggleMenu(false));
+refs.mobileMenuCloseBtn.addEventListener('click', () => {
+  refs.mobileMenu.classList.remove('is-open');
+  document.body.classList.remove('no-scroll');
+});
+
+refs.mobileMenuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    refs.mobileMenu.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
+  });
+});
