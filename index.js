@@ -14,7 +14,7 @@ import{a as f}from"./assets/vendor-BvLu_gPC.js";(function(){const s=document.cre
         <button class="artist-btn" data-id="${s}">
           Learn More
           <svg class="artist-btn-icon" width="24" height="24">
-            <use href="./img/icons.svg#caret-right"></use>
+            <use href="/img/icons.svg#caret-right"></use>
           </svg>
         </button>
       </li>`}function g(t){const s=t.map(L).join("");a.artistsContainer.insertAdjacentHTML("beforeend",s)}function h(){a.loader.classList.remove("is-hidden")}function M(){a.loader.classList.add("is-hidden")}function v(t,s){t<s?a.loadMoreBtn.classList.remove("is-hidden"):a.loadMoreBtn.classList.add("is-hidden")}const A={loadMoreBtn:document.querySelector(".load-more-btn")},d=8;let l=1;async function u(){h();try{const{artists:t,totalArtists:s}=await y(d,l),r=Math.ceil(s/d);g(t),v(l,r)}catch(t){console.log(t)}M()}u();A.loadMoreBtn.addEventListener("click",async()=>{l++,await u()});
