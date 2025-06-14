@@ -16,6 +16,16 @@
   fill: #764191;
 }
 
+.menu-link,
+.mobile-menu-link {
+  transition: opacity 250ms linear;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .page-header-container {
     display: flex;

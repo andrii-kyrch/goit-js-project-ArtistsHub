@@ -40,21 +40,22 @@
 }
 
 .btn-section {
-  display: inline-flex;
+  display: flex;
   column-gap: 12px;
   justify-content: center;
   align-items: center;
   min-width: 100%;
   font-weight: 500;
-  color: var(--color-bg);
+  color: var(--color-text);
+  border: none;
   border-radius: 12px;
   padding: 10px 24px;
   box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
     inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
     inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-  background-color: #f2f2f2;
-  fill: var(--color-bg);
+  background-color: #764191;
+  fill: var(--color-text);
   transition: box-shadow, opacity 250ms linear;
 
   &:hover,
@@ -97,6 +98,7 @@
 
   .hero-btn {
     min-width: 246px;
+    display: inline-flex;
   }
 }
 
