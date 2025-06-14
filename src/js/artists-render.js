@@ -1,3 +1,5 @@
+import svgIcons from '../img/icons.svg?url';
+
 const refs = {
   artistsContainer: document.querySelector('.artists-list'),
   loader: document.querySelector('.loader'),
@@ -27,7 +29,7 @@ function artistTemplate(artist) {
         <button class="artist-btn" data-id="${_id}">
           Learn More
           <svg class="artist-btn-icon" width="24" height="24">
-            <use href="/img/icons.svg#caret-right"></use>
+            <use href="${svgIcons}#caret-right"></use>
           </svg>
         </button>
       </li>`;
