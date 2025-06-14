@@ -27,7 +27,7 @@ function artistTemplate(artist) {
         <button class="artist-btn" data-id="${_id}">
           Learn More
           <svg class="artist-btn-icon" width="24" height="24">
-            <use href="./img/icons.svg#caret-right"></use>
+            <use href="/img/icons.svg#caret-right"></use>
           </svg>
         </button>
       </li>`;
