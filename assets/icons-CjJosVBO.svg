@@ -11,8 +11,8 @@
         d="M16.265 23.366l-5.495-5.495h12.27v-2.56h-12.27l5.495-5.495-1.81-1.81-8.585 8.585 8.585 8.585 1.81-1.81z">
       </path>
     </symbol>
-    <symbol id="icon-down-arrow-alt" viewBox="0 0 31 32">
-      <path fill="#fff" style="fill: var(--color1, #fff)"
+    <symbol id="down-arrow-alt" viewBox="0 0 31 32">
+      <path
         d="M23.945 17.282l-1.81-1.81-5.495 5.495v-12.27h-2.56v12.27l-5.495-5.495-1.81 1.81 8.585 8.585 8.585-8.585z">
       </path>
     </symbol>
