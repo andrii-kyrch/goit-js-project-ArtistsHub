@@ -3,10 +3,14 @@
   padding-bottom: 64px;
 }
 
+.artists-container {
+  position: relative;
+}
+
 .artists-title {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .artists-text {
@@ -27,6 +31,9 @@
 
 .artist-photo {
   width: 100%;
+  height: 177px;
+  object-position: center top;
+  object-fit: cover;
   border-radius: 16px;
   margin-bottom: 24px;
 }
@@ -77,5 +84,107 @@
   }
 }
 
+.loader-wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 55px;
+  transform: translateX(-50%);
+}
+
+.loader {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease, transform 300ms ease, visibility 300ms;
+
+  width: 48px;
+  height: 48px;
+  border: 5px solid #764191;
+  border-radius: 50%;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  animation: pulse 1s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+}
+.loader:after {
+  content: '';
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #764191;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: scaleUp 1s linear infinite;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  60%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes pulse {
+  0%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+}
+
+.loader.is-hidden {
+  display: none;
+}
+
+.load-more-btn.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
 @media screen and (min-width: 768px) {
+  .artists-list {
+    row-gap: 32px;
+    margin-bottom: 64px;
+  }
+
+  .artist-photo {
+    min-height: 433px;
+  }
+
+  .load-more-btn {
+    min-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .artists-section {
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
+
+  .artists-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .artists-item {
+    width: calc((100% - 32px) / 2);
+  }
+
+  .load-more-btn {
+    min-width: 170px;
+  }
 }

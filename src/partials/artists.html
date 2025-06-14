@@ -1,8 +1,16 @@
 <section class="artists-section" id="artists">
-  <div class="container">
+  <div class="container artists-container">
     <h2 class="artists-title">Artists</h2>
     <p class="artists-text">Explore Your New Favorite Artists</p>
     <ul class="artists-list"></ul>
-    <button class="btn-section load-more-btn">Load More</button>
+    <div class="loader-wrapper">
+      <div class="loader is-hidden"></div>
+    </div>
+    <button class="btn-section load-more-btn">
+      Load More
+      <svg class="icon-load-more-btn" width="24" height="24">
+        <use href="./img/icons.svg#down-arrow-alt"></use>
+      </svg>
+    </button>
   </div>
 </section>
