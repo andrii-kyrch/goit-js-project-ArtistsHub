@@ -127,7 +127,7 @@
         rgba(6, 3, 7, 1) 100%
       ),
       linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
-      url('../img/hero/hero-bg.png');
+      url('../img/hero/hero-bg.webp');
     background-position: top, bottom, right 64px bottom;
     background-size: 100% 80px, 100% 137px, 641px 900px;
   }
@@ -154,6 +154,6 @@
         rgba(6, 3, 7, 1) 100%
       ),
       linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
-      url('../img/hero/hero-bg@2x.png');
+      url('../img/hero/hero-bg@2x.webp');
   }
 }

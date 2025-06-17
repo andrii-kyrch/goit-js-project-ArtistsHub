@@ -1,10 +1,10 @@
-import getArtists from './sound-wave-api.js';
+import { getArtists } from './sound-wave-api.js';
 import {
   createArtistsList,
   hideLoader,
   showLoader,
   updateLoadMoreVisibility,
-} from './artists-render.js';
+} from './render-functions.js';
 
 const refs = {
   loadMoreBtn: document.querySelector('.load-more-btn'),

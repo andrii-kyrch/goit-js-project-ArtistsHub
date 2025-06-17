@@ -96,9 +96,9 @@
   visibility: visible;
   transition: opacity 300ms ease, transform 300ms ease, visibility 300ms;
 
-  width: 48px;
-  height: 48px;
-  border: 5px solid #764191;
+  width: 36px;
+  height: 36px;
+  border: 3px solid #764191;
   border-radius: 50%;
   display: block;
   box-sizing: border-box;
@@ -110,9 +110,9 @@
 .loader:after {
   content: '';
   position: absolute;
-  width: 48px;
-  height: 48px;
-  border: 5px solid #764191;
+  width: 36px;
+  height: 36px;
+  border: 3px solid #764191;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;

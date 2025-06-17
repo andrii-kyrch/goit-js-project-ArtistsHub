@@ -10,6 +10,8 @@
 @import url('./base.css');
 @import url('./container.css');
 
+@import 'css-star-rating/css/star-rating.css';
+
 /* Sections style */
 @import url('./header.css');
 @import url('./hero.css');

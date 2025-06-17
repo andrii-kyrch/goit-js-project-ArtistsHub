@@ -1,15 +1,29 @@
 import axios from 'axios';
 
 const BASE_URL = 'https://sound-wave.b.goit.study/api';
-const END_POINT = `/artists/`;
+const ARTISTS_END_POINT = `/artists/`;
+const FEEDBACKS_ENDPOINT = `/feedbacks/`;
 const API_KEY = '';
 
-export default async function getArtists(perPage, page) {
-  const url = BASE_URL + END_POINT;
+export async function getArtists(perPage, page) {
+  const url = BASE_URL + ARTISTS_END_POINT;
 
   const params = {
     limit: perPage,
     page,
+  };
+
+  const headers = {};
+
+  const response = await axios.get(url, { params });
+  return response.data;
+}
+
+export async function getFeedbacks() {
+  const url = BASE_URL + FEEDBACKS_ENDPOINT;
+
+  const params = {
+    limit: 10,
   };
 
   const headers = {};
