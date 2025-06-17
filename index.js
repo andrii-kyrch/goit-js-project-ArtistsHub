@@ -1,21 +1,85 @@
-import{a as p}from"./assets/vendor-BvLu_gPC.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const c of o.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&n(c)}).observe(document,{childList:!0,subtree:!0});function r(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function n(e){if(e.ep)return;e.ep=!0;const o=r(e);fetch(e.href,o)}})();const i={mobileMenuOpenBtn:document.querySelector(".mobile-menu-open-btn"),mobileMenuCloseBtn:document.querySelector(".mobile-menu-close-btn"),mobileMenu:document.querySelector(".mobile-menu"),mobileMenuLinks:document.querySelectorAll(".mobile-menu-link")};i.mobileMenuOpenBtn.addEventListener("click",()=>{i.mobileMenu.classList.add("is-open"),document.body.classList.add("no-scroll")});i.mobileMenuCloseBtn.addEventListener("click",()=>{i.mobileMenu.classList.remove("is-open"),document.body.classList.remove("no-scroll")});i.mobileMenuLinks.forEach(t=>{t.addEventListener("click",()=>{i.mobileMenu.classList.remove("is-open"),document.body.classList.remove("no-scroll")})});const f="https://sound-wave.b.goit.study/api",b="/artists/";async function g(t,s){const r=f+b,n={limit:t,page:s};return(await p.get(r,{params:n})).data}const y="/goit-js-project-ArtistsHub/assets/icons-BkjH32aa.svg",a={artistsContainer:document.querySelector(".artists-list"),loader:document.querySelector(".loader"),loadMoreBtn:document.querySelector(".load-more-btn")};function L(t){const{_id:s,strArtist:r,strArtistThumb:n,strBiographyEN:e,genres:o}=t,c=o.map(m=>`<li class="artist-genres-item">${m}</li>`).join("");return`<li class="artists-item">
+import{a as m,S as h,N as b,K as y}from"./assets/vendor-CIDwANU8.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))o(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const l of r.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&o(l)}).observe(document,{childList:!0,subtree:!0});function a(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function o(t){if(t.ep)return;t.ep=!0;const r=a(t);fetch(t.href,r)}})();const n={mobileMenuOpenBtn:document.querySelector(".mobile-menu-open-btn"),mobileMenuCloseBtn:document.querySelector(".mobile-menu-close-btn"),mobileMenu:document.querySelector(".mobile-menu"),mobileMenuLinks:document.querySelectorAll(".mobile-menu-link")};n.mobileMenuOpenBtn.addEventListener("click",()=>{n.mobileMenu.classList.add("is-open"),document.body.classList.add("no-scroll")});n.mobileMenuCloseBtn.addEventListener("click",()=>{n.mobileMenu.classList.remove("is-open"),document.body.classList.remove("no-scroll")});n.mobileMenuLinks.forEach(e=>{e.addEventListener("click",()=>{n.mobileMenu.classList.remove("is-open"),document.body.classList.remove("no-scroll")})});const v="https://sound-wave.b.goit.study/api",L="/artists/",$="/feedbacks/";async function M(e,s){const a=v+L,o={limit:e,page:s};return(await m.get(a,{params:o})).data}async function k(){const e=v+$,s={limit:10};return(await m.get(e,{params:s})).data}const i="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg",c={artistsContainer:document.querySelector(".artists-list"),loader:document.querySelector(".loader"),loadMoreBtn:document.querySelector(".load-more-btn"),feedbacksContainer:document.querySelector(".swiper-wrapper")};function S(e){const{_id:s,strArtist:a,strArtistThumb:o,strBiographyEN:t,genres:r}=e,l=r.map(p=>`<li class="artist-genres-item">${p}</li>`).join("");return`<li class="artists-item">
         <img
-          src="${n}"
-          alt="Artist ${r}"
+          src="${o}"
+          alt="Artist ${a}"
           class="artist-photo"
         />
         <ul class="artist-genres-list">
-          ${c}
+          ${l}
         </ul>
-        <h3 class="artist-name">${r}</h3>
+        <h3 class="artist-name">${a}</h3>
         <p class="artist-text">
-          ${e.split(" ").slice(0,10).join(" ")} ...
+          ${t.split(" ").slice(0,10).join(" ")} ...
         </p>
         <button class="artist-btn" data-id="${s}">
           Learn More
           <svg class="artist-btn-icon" width="24" height="24">
-            <use href="${y}#caret-right"></use>
+            <use href="${i}#caret-right"></use>
           </svg>
         </button>
-      </li>`}function h(t){const s=t.map(L).join("");a.artistsContainer.insertAdjacentHTML("beforeend",s)}function M(){a.loader.classList.remove("is-hidden")}function v(){a.loader.classList.add("is-hidden")}function A(t,s){t<s?a.loadMoreBtn.classList.remove("is-hidden"):a.loadMoreBtn.classList.add("is-hidden")}const B={loadMoreBtn:document.querySelector(".load-more-btn")},d=8;let l=1;async function u(){M();try{const{artists:t,totalArtists:s}=await g(d,l),r=Math.ceil(s/d);h(t),A(l,r)}catch(t){console.log(t)}v()}u();B.loadMoreBtn.addEventListener("click",async()=>{l++,await u()});
+      </li>`}function E(e){const s=e.map(S).join("");c.artistsContainer.insertAdjacentHTML("beforeend",s)}function w(){c.loader.classList.remove("is-hidden")}function A(){c.loader.classList.add("is-hidden")}function q(e,s){e<s?c.loadMoreBtn.classList.remove("is-hidden"):c.loadMoreBtn.classList.add("is-hidden")}function B(e){const{name:s,descr:a,rating:o}=e;return console.log(o,Math.round(o)),`<div class="swiper-slide">
+  <div class="feedback-item">
+    <div class="feedback-rating rating star-svg value-${Math.round(o)} color-default">
+      <div class="star-container">
+        <div class="star">
+          <svg class="star-empty">
+            <use href="${i}#star-empty"></use>
+          </svg>
+          <svg class="star-half">
+            <use href="${i}#star-half"></use>
+          </svg>
+          <svg class="star-filled">
+            <use href="${i}#star-filled"></use>
+          </svg>
+        </div>
+        <div class="star">
+          <svg class="star-empty">
+            <use href="${i}#star-empty"></use>
+          </svg>
+          <svg class="star-half">
+            <use href="${i}#star-half"></use>
+          </svg>
+          <svg class="star-filled">
+            <use href="${i}#star-filled"></use>
+          </svg>
+        </div>
+        <div class="star">
+          <svg class="star-empty">
+            <use href="${i}#star-empty"></use>
+          </svg>
+          <svg class="star-half">
+            <use href="${i}#star-half"></use>
+          </svg>
+          <svg class="star-filled">
+            <use href="${i}#star-filled"></use>
+          </svg>
+        </div>
+        <div class="star">
+          <svg class="star-empty">
+            <use href="${i}#star-empty"></use>
+          </svg>
+          <svg class="star-half">
+            <use href="${i}#star-half"></use>
+          </svg>
+          <svg class="star-filled">
+            <use href="${i}#star-filled"></use>
+          </svg>
+        </div>
+        <div class="star">
+          <svg class="star-empty">
+            <use href="${i}#star-empty"></use>
+          </svg>
+          <svg class="star-half">
+            <use href="${i}#star-half"></use>
+          </svg>
+          <svg class="star-filled">
+            <use href="${i}#star-filled"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <p class="feedback-message">"${a}"</p>
+    <p class="feedback-author-name">${s}</p>
+  </div>
+</div>`}function N(e){const s=e.map(B).join("");c.feedbacksContainer.innerHTML=s}const O={loadMoreBtn:document.querySelector(".load-more-btn")},u=8;let d=1;async function g(){w();try{const{artists:e,totalArtists:s}=await M(u,d),a=Math.ceil(s/u);E(e),q(d,a)}catch(e){console.log(e)}A()}g();O.loadMoreBtn.addEventListener("click",async()=>{d++,await g()});async function P(){const{data:e}=await k();N(e)}P();new h(".swiper",{modules:[b,y],on:{init:f,slideChange:f},keyboard:{enabled:!0},breakpoints:{768:{navigation:{nextEl:".feedback-next-btn",prevEl:".feedback-prev-btn"}}}});function f(e){const s=e.slides.length,a=e.activeIndex,o=document.querySelector(".dot-first"),t=document.querySelector(".dot-middle"),r=document.querySelector(".dot-last");a===0?o.classList.add("active"):a===s-1?r.classList.add("active"):t.classList.add("active"),a!==0&&a!==s-1?(t.classList.add("active"),o.classList.remove("active"),r.classList.remove("active")):t.classList.remove("active")}
 //# sourceMappingURL=index.js.map

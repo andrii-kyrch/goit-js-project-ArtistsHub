@@ -11,8 +11,9 @@
     <link rel="manifest" href="/goit-js-project-ArtistsHub/site.webmanifest" />
     <title>ArtistsHub</title>
     <script type="module" crossorigin src="/goit-js-project-ArtistsHub/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/goit-js-project-ArtistsHub/assets/vendor-BvLu_gPC.js">
-    <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/index-DOHXP_6Y.css">
+    <link rel="modulepreload" crossorigin href="/goit-js-project-ArtistsHub/assets/vendor-CIDwANU8.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/vendor-BMD19QWe.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/index-DxQcPrIs.css">
   </head>
   <body>
     <header class="page-header">
@@ -20,20 +21,22 @@
     <nav class="page-nav">
       <a href="./index.html" class="logo">
         <svg class="logo-icon" width="106" height="30">
-          <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-BkjH32aa.svg#icon-logo"></use>
+          <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#icon-logo"></use>
         </svg>
       </a>
       <ul class="menu">
         <li class="menu-item">
           <a href="#artists" class="menu-link">Artists</a>
         </li>
-        <li class="menu-item"><a href="#" class="menu-link">About Us</a></li>
+        <li class="menu-item">
+          <a href="#about-us" class="menu-link">About Us</a>
+        </li>
         <li class="menu-item"><a href="#" class="menu-link">Reviews</a></li>
       </ul>
     </nav>
     <button class="mobile-menu-open-btn" type="button" aria-label="Open menu">
       <svg class="mobile-menu-icon" width="24" height="24">
-        <use href="/goit-js-project-ArtistsHub/assets/icons-BkjH32aa.svg#icon-mobile-menu"></use>
+        <use href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#icon-mobile-menu"></use>
       </svg>
     </button>
   </div>
@@ -43,7 +46,7 @@
     <div class="mobile-menu-header">
       <a href="./index.html" class="logo">
         <svg class="logo-icon" width="106" height="30">
-          <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-BkjH32aa.svg#icon-logo"></use>
+          <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#icon-logo"></use>
         </svg>
       </a>
       <button
@@ -52,7 +55,7 @@
         aria-label="Close menu"
       >
         <svg class="mobile-menu-icon" width="24" height="24">
-          <use href="/goit-js-project-ArtistsHub/assets/icons-BkjH32aa.svg#close-mobile-menu"></use>
+          <use href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#close-mobile-menu"></use>
         </svg>
       </button>
     </div>
@@ -83,7 +86,7 @@
     <a href="#artists" class="btn-section hero-btn"
       >Explore Artists
       <svg class="hero-btn-icon" width="24" height="24">
-        <use href="/goit-js-project-ArtistsHub/assets/icons-BkjH32aa.svg#right-arrow"></use>
+        <use href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#right-arrow"></use>
       </svg>
     </a>
   </div>
@@ -100,7 +103,7 @@
     <button class="btn-section load-more-btn">
       Load More
       <svg class="icon-load-more-btn" width="24" height="24">
-        <use href="/goit-js-project-ArtistsHub/assets/icons-BkjH32aa.svg#down-arrow-alt"></use>
+        <use href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#down-arrow-alt"></use>
       </svg>
     </button>
   </div>
@@ -125,7 +128,7 @@
     </picture>
     <div class="about-us-content">
       <svg class="about-us-logo" width="64" height="64">
-        <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-BkjH32aa.svg#logo-icon" />
+        <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#logo-icon" />
       </svg>
       <h2 class="about-us-title">About ArtistsHub</h2>
       <p class="about-us-text">
@@ -137,7 +140,41 @@
   </div>
 </section>
 
-      
+      <section id="reviews" class="feedback-section">
+  <div class="container">
+    <h2 class="feedback-title visually-hidden">Feedbacks our visitors</h2>
+    <div class="feedback-wrapper">
+      <button
+        class="feedback-prev-btn"
+        type="button"
+        aria-label="Previous feedback"
+      >
+        <svg width="24" height="24">
+          <use href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#left-arrow-alt"></use>
+        </svg>
+      </button>
+      <div class="swiper">
+        <div class="feedbacks-list swiper-wrapper"></div>
+      </div>
+      <button
+        class="feedback-next-btn"
+        type="button"
+        aria-label="Next feedback"
+      >
+        <svg width="24" height="24">
+          <use href="/goit-js-project-ArtistsHub/assets/icons-DEYTBeGb.svg#right-arrow-alt"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="custom-pagination">
+      <span class="dot dot-first"></span>
+      <span class="dot dot-middle"></span>
+      <span class="dot dot-last"></span>
+    </div>
+  </div>
+</section>
+
       
       
     </main>
