@@ -47,7 +47,7 @@
     background-color: var(--color-bg);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 250ms linear;
+    transition: opacity 250ms linear, visibility 250ms linear;
   }
 
   .mobile-menu-header {
@@ -78,18 +78,26 @@
 
   .mobile-menu-open-btn,
   .mobile-menu-close-btn {
-    width: 48px;
-    height: 48px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    border: none;
+    /* width: 48px; */
+    /* height: 48px; */
+    /* display: inline-flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
     background-color: transparent;
-  }
-
-  .mobile-menu-icon {
+    border: none;
+    padding: 12px;
+    line-height: 0;
+    transition: opacity 250ms linear;
     fill: var(--color-text);
+
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
   }
 }
 
