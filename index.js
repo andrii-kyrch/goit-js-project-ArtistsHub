@@ -81,7 +81,7 @@ import{a as m,S as I,N,K as P}from"./assets/vendor-CIDwANU8.js";(function(){cons
     <p class="feedback-message">"${a}"</p>
     <p class="feedback-author-name">${t}</p>
   </div>
-</div>`}function Q(s){const t=s.map(U).join("");n.feedbacksContainer.innerHTML=t}function V(s){const t=Math.floor(s/1e3),a=Math.floor(t/60),r=t%60,e=r<10?`0${r}`:r;return`${a}:${e}`}function z(s){const{strArtist:t,strArtistThumb:a,intFormedYear:r,intDiedYear:e,strGender:i,intMembers:o,strCountry:L,strBiographyEN:$,genres:M,albumsList:k}=s,S=h(M),A=k.map(B=>{const{strAlbum:w,tracks:T}=B,E=T.map(q=>{const{intDuration:C,movie:f,strTrack:D}=q;return`<tr class="row">
+</div>`}function Q(s){const t=s.map(U).join("");n.feedbacksContainer.innerHTML=t}function V(s){const t=Math.floor(s/1e3),a=Math.floor(t/60),r=t%60,e=r<10?`0${r}`:r;return`${a}:${e}`}function z(s){const{strArtist:t,strArtistThumb:a,intFormedYear:r,intDiedYear:e,strGender:i,intMembers:o,strCountry:$,strBiographyEN:L,genres:M,albumsList:k}=s,S=h(M),A=k.map(B=>{const{strAlbum:w,tracks:T}=B,E=T.map(q=>{const{intDuration:C,movie:f,strTrack:D}=q;return`<tr class="row">
                   <td class="col-1">${D}</td>
                   <td class="col-2">${V(C)}</td>
                   <td class="col-3">
@@ -91,7 +91,7 @@ import{a as m,S as I,N,K as P}from"./assets/vendor-CIDwANU8.js";(function(){cons
                       target="_blank"
                     >
                       <svg width="24" height="24">
-                        <use href="./img/icons.svg#youtube"></use>
+                        <use href="${l}#youtube"></use>
                       </svg>
                     </a>`:""} 
                   </td>
@@ -130,11 +130,11 @@ import{a as m,S as I,N,K as P}from"./assets/vendor-CIDwANU8.js";(function(){cons
           </li>
           <li class="artist-details-item">
             <p class="artist-details-label">Country</p>
-            <p class="artist-details-value">${L}</p>
+            <p class="artist-details-value">${$}</p>
           </li>
           <li class="artist-details-item">
             <p class="artist-details-label">Biography</p>
-            <p class="artist-details-value">${$}</p>
+            <p class="artist-details-value">${L}</p>
           </li>
           <li class="artist-details-item">
             <ul class="artist-genres-list">${S}</ul>
