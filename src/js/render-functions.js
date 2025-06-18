@@ -59,7 +59,6 @@ export function updateLoadMoreVisibility(currentPage, maxPage) {
 
 function feedbacksTemplate(feedback) {
   const { name, descr, rating } = feedback;
-  console.log(rating, Math.round(rating));
 
   return `<div class="swiper-slide">
   <div class="feedback-item">
