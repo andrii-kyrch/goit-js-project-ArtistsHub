@@ -157,4 +157,14 @@ tbody .col-3 {
   margin-left: auto;
   align-items: center;
   justify-content: center;
+  transition: opacity 250ms linear;
+
+  &:hover,
+  &:focus {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.2;
+  }
 }

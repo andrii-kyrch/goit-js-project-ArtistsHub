@@ -184,7 +184,7 @@ function artistDetailsTemplate(artist) {
                       target="_blank"
                     >
                       <svg width="24" height="24">
-                        <use href="./img/icons.svg#youtube"></use>
+                        <use href="${iconsPath}#youtube"></use>
                       </svg>
                     </a>`
                       : ''
