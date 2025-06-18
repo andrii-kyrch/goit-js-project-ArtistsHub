@@ -5,15 +5,20 @@ const refs = {
   loader: document.querySelector('.loader'),
   loadMoreBtn: document.querySelector('.load-more-btn'),
   feedbacksContainer: document.querySelector('.swiper-wrapper'),
+  artistDetailsContainer: document.querySelector('.artist-details-info'),
 };
+
+function artistGenresTemplate(genres) {
+  return genres
+    .map(genre => `<li class="artist-genres-item">${genre}</li>`)
+    .join('');
+}
 
 function artistTemplate(artist) {
   const { _id, strArtist, strArtistThumb, strBiographyEN, genres } = artist;
-  const genresMarkup = genres
-    .map(genre => {
-      return `<li class="artist-genres-item">${genre}</li>`;
-    })
-    .join('');
+
+  const genresMarkup = artistGenresTemplate(genres);
+
   return `<li class="artists-item">
         <img
           src="${strArtistThumb}"
@@ -27,7 +32,7 @@ function artistTemplate(artist) {
         <p class="artist-text">
           ${strBiographyEN.split(' ').slice(0, 10).join(' ')} ...
         </p>
-        <button class="artist-btn" data-id="${_id}">
+        <button class="artist-btn" data-artist-id="${_id}">
           Learn More
           <svg class="artist-btn-icon" width="24" height="24">
             <use href="${iconsPath}#caret-right"></use>
@@ -132,4 +137,59 @@ function feedbacksTemplate(feedback) {
 export function createFeedbacks(feedbacks) {
   const markup = feedbacks.map(feedbacksTemplate).join('');
   refs.feedbacksContainer.innerHTML = markup;
+}
+
+function artistDetailsTemplate(artist) {
+  const {
+    strArtist,
+    strArtistThumb,
+    intFormedYear,
+    intDiedYear,
+    strGender,
+    intMembers,
+    strCountry,
+    strBiographyEN,
+    genres,
+  } = artist;
+
+  const genresMarkup = artistGenresTemplate(genres);
+
+  return `<h2 class="artist-details-name">${strArtist}</h2>
+        <img
+          class="artist-photo-details"
+          src="${strArtistThumb}"
+          alt=""
+        />
+        <ul class="artist-details-list">
+          <li class="artist-details-item">
+            <p class="artist-details-label">Years active</p>
+            <p class="artist-details-value">${intFormedYear}–${
+    intDiedYear || 'present'
+  }</p>
+          </li>
+          <li class="artist-details-item">
+            <p class="artist-details-label">Sex</p>
+            <p class="artist-details-value">${strGender}</p>
+          </li>
+          <li class="artist-details-item">
+            <p class="artist-details-label">Members</p>
+            <p class="artist-details-value">${intMembers}</p>
+          </li>
+          <li class="artist-details-item">
+            <p class="artist-details-label">Country</p>
+            <p class="artist-details-value">${strCountry}</p>
+          </li>
+          <li class="artist-details-item">
+            <p class="artist-details-label">Biography</p>
+            <p class="artist-details-value">${strBiographyEN}</p>
+          </li>
+          <li class="artist-details-item">
+            <ul class="artist-genres-list">${genresMarkup}</ul>
+          </li>
+        </ul>`;
+}
+
+export function createArtistDetails(artistInfo) {
+  const markup = artistDetailsTemplate(artistInfo);
+  refs.artistDetailsContainer.innerHTML = markup;
 }
