@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const BASE_URL = 'https://sound-wave.b.goit.study/api';
 const ARTISTS_END_POINT = `/artists/`;
+const ARTIST_ALBUMS_ENDPOINT = '/albums/';
 const FEEDBACKS_ENDPOINT = `/feedbacks/`;
 const API_KEY = '';
 
@@ -32,8 +33,8 @@ export async function getFeedbacks() {
   return response.data;
 }
 
-export async function getArtistById(id) {
-  const url = BASE_URL + ARTISTS_END_POINT + id;
+export async function getArtistInfoById(id) {
+  const url = BASE_URL + ARTISTS_END_POINT + id + ARTIST_ALBUMS_ENDPOINT;
   const params = {};
 
   const headers = {};

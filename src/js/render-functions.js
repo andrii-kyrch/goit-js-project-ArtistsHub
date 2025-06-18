@@ -139,6 +139,16 @@ export function createFeedbacks(feedbacks) {
   refs.feedbacksContainer.innerHTML = markup;
 }
 
+function formatDuration(ms) {
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+  return `${minutes}:${formattedSeconds}`;
+}
+
 function artistDetailsTemplate(artist) {
   const {
     strArtist,
@@ -150,9 +160,57 @@ function artistDetailsTemplate(artist) {
     strCountry,
     strBiographyEN,
     genres,
+    albumsList,
   } = artist;
 
   const genresMarkup = artistGenresTemplate(genres);
+
+  const albumsMarkup = albumsList
+    .map(album => {
+      const { strAlbum, tracks } = album;
+
+      const tracksMarkup = tracks
+        .map(track => {
+          const { intDuration, movie, strTrack } = track;
+          return `<tr class="row">
+                  <td class="col-1">${strTrack}</td>
+                  <td class="col-2">${formatDuration(intDuration)}</td>
+                  <td class="col-3">
+                  ${
+                    movie
+                      ? `<a
+                      class="song-link"
+                      href="${movie}"
+                      target="_blank"
+                    >
+                      <svg width="24" height="24">
+                        <use href="./img/icons.svg#youtube"></use>
+                      </svg>
+                    </a>`
+                      : ''
+                  } 
+                  </td>
+                </tr>`;
+        })
+        .join('');
+
+      return `<li class="artist-album-card">
+            <table>
+              <caption class="albums-name">${strAlbum}</caption>
+              <thead>
+                <tr class="row">
+                  <th class="col-1">Track</th>
+                  <th class="col-2">Time</th>
+                  <th class="col-3">Link</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${tracksMarkup}
+              </tbody>
+            </table>
+          </li>`;
+    })
+    .join('');
 
   return `<h2 class="artist-details-name">${strArtist}</h2>
         <img
@@ -186,7 +244,9 @@ function artistDetailsTemplate(artist) {
           <li class="artist-details-item">
             <ul class="artist-genres-list">${genresMarkup}</ul>
           </li>
-        </ul>`;
+        </ul>
+        <h3 class="section-artist-albums-title">Albums</h3>
+        <ul class="artist-album-cards">${albumsMarkup}</ul>`;
 }
 
 export function createArtistDetails(artistInfo) {

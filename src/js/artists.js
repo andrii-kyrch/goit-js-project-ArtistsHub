@@ -1,4 +1,4 @@
-import { getArtists, getArtistById } from './sound-wave-api.js';
+import { getArtists, getArtistInfoById } from './sound-wave-api.js';
 import {
   createArtistDetails,
   createArtistsList,
@@ -41,7 +41,8 @@ refs.artistsContainer.addEventListener('click', async e => {
   if (!learnMoreBtn) return;
 
   const artistId = learnMoreBtn.dataset.artistId;
-  const artistInfo = await getArtistById(artistId);
+  const artistInfo = await getArtistInfoById(artistId);
+  console.log(artistInfo);
 
   createArtistDetails(artistInfo);
   refs.artistDetailsModal.classList.add('is-open');
