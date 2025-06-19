@@ -1,3 +1,4 @@
+import { refs } from './refs';
 import Swiper from 'swiper';
 import { Navigation, Keyboard } from 'swiper/modules';
 import 'swiper/css';
@@ -13,7 +14,6 @@ async function loadFeedback() {
 loadFeedback();
 
 const swiper = new Swiper('.swiper', {
-  // Будь-які інші параметри
   modules: [Navigation, Keyboard],
 
   on: {
@@ -39,25 +39,23 @@ function updateCustomPagination(swiper) {
   const totalSlides = swiper.slides.length;
   const currentIndex = swiper.activeIndex;
 
-  const dotFirst = document.querySelector('.dot-first');
-  const dotMiddle = document.querySelector('.dot-middle');
-  const dotLast = document.querySelector('.dot-last');
+  const { paginationDotFirst, paginationDotMiddle, paginationDotLast } = refs;
 
-  // if (swiper.isBeginning) {
+  paginationDotFirst.classList.remove('active');
+  paginationDotMiddle.classList.remove('active');
+  paginationDotLast.classList.remove('active');
+
   if (currentIndex === 0) {
-    dotFirst.classList.add('active');
+    setActiveDot(paginationDotFirst);
   } else if (currentIndex === totalSlides - 1) {
-    dotLast.classList.add('active');
+    setActiveDot(paginationDotLast);
   } else {
-    dotMiddle.classList.add('active');
+    setActiveDot(paginationDotMiddle);
   }
+}
 
-  // Гарантуємо що тільки одна активна
-  if (currentIndex !== 0 && currentIndex !== totalSlides - 1) {
-    dotMiddle.classList.add('active');
-    dotFirst.classList.remove('active');
-    dotLast.classList.remove('active');
-  } else {
-    dotMiddle.classList.remove('active');
-  }
+function setActiveDot(dot) {
+  dot.classList.remove('active');
+  void dot.offsetWidth;
+  dot.classList.add('active');
 }

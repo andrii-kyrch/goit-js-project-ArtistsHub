@@ -41,7 +41,7 @@
 .dot {
   width: 8px;
   height: 8px;
-  background-color: #ffffff;
+  background-color: var(--color-text);
   border-radius: 50%;
   opacity: 0.2;
   transition: opacity 250ms linear;
@@ -49,6 +49,19 @@
 
 .dot.active {
   opacity: 1;
+  animation: dotPulse 250ms ease;
+}
+
+@keyframes dotPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -59,21 +72,14 @@
 
   .feedback-prev-btn,
   .feedback-next-btn {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    padding: 12px;
+    display: block;
+    line-height: 0;
+    padding: 11px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     background-color: transparent;
     transition: opacity 250ms linear;
-
-    & svg {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      fill: var(--color-text);
-    }
+    fill: var(--color-text);
 
     &:hover,
     &:focus {
