@@ -1,12 +1,5 @@
+import { refs } from './refs';
 import iconsPath from '../img/icons.svg?url';
-
-const refs = {
-  artistsContainer: document.querySelector('.artists-list'),
-  loader: document.querySelector('.loader'),
-  loadMoreBtn: document.querySelector('.load-more-btn'),
-  feedbacksContainer: document.querySelector('.swiper-wrapper'),
-  artistDetailsContainer: document.querySelector('.artist-details-info'),
-};
 
 function artistGenresTemplate(genres) {
   return genres
@@ -43,7 +36,7 @@ function artistTemplate(artist) {
 
 export function createArtistsList(artists) {
   const markup = artists.map(artistTemplate).join('');
-  refs.artistsContainer.insertAdjacentHTML('beforeend', markup);
+  refs.artistsListContainer.insertAdjacentHTML('beforeend', markup);
 }
 
 export function showLoader() {
@@ -221,7 +214,7 @@ function artistDetailsTemplate(artist) {
         <ul class="artist-details-list">
           <li class="artist-details-item">
             <p class="artist-details-label">Years active</p>
-            <p class="artist-details-value">${intFormedYear}–${
+            <p class="artist-details-value">${intFormedYear || 'Unknown'}–${
     intDiedYear || 'present'
   }</p>
           </li>

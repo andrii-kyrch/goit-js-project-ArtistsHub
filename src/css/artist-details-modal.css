@@ -1,4 +1,4 @@
-.backdrop {
+.artist-details-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@
   transition: visibility 250ms linear, opacity 250ms linear;
 }
 
-.backdrop.is-open {
+.artist-details-backdrop.is-open {
   opacity: 1;
   visibility: visible;
 }

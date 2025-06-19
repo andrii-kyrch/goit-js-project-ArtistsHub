@@ -76,7 +76,7 @@
   font-weight: 500;
   color: var(--color-text);
   fill: var(--color-text);
-  transition: opacity 250ms linear;
+  transition: opacity 250ms linear visibility 250ms linear;
 
   &:hover,
   &:focus {
@@ -143,7 +143,8 @@
 }
 
 .loader.is-hidden {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .load-more-btn.is-hidden {

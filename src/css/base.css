@@ -8,6 +8,12 @@
   --color-bg: #060307;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   font-family: var(--font-family);
   font-size: 18px;
