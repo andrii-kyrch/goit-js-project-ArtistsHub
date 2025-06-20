@@ -165,14 +165,16 @@ function artistDetailsTemplate(artist) {
       const tracksMarkup = tracks
         .map(track => {
           const { intDuration, movie, strTrack } = track;
-          return `<tr class="row">
-                  <td class="col-1">${strTrack}</td>
-                  <td class="col-2">${formatDuration(intDuration)}</td>
-                  <td class="col-3">
+          return `<tr class="artist-modal-album-row">
+                  <td class="artist-modal-album-track col-1">${strTrack}</td>
+                  <td class="artist-modal-album-time col-2">${formatDuration(
+                    intDuration
+                  )}</td>
+                  <td class="artist-modal-album-link col-3">
                   ${
                     movie
                       ? `<a
-                      class="song-link"
+                      class="clip-link"
                       href="${movie}"
                       target="_blank"
                     >
@@ -187,14 +189,14 @@ function artistDetailsTemplate(artist) {
         })
         .join('');
 
-      return `<li class="artist-album-card">
-            <table>
-              <caption class="albums-name">${strAlbum}</caption>
+      return `<li class="artist-modal-album-card">
+            <table class="artist-modal-album-table">
+              <caption class="artist-modal-album-name">${strAlbum}</caption>
               <thead>
-                <tr class="row">
-                  <th class="col-1">Track</th>
-                  <th class="col-2">Time</th>
-                  <th class="col-3">Link</th>
+                <tr class="artist-modal-album-row">
+                  <th class="artist-modal-album-th col-1">Track</th>
+                  <th class="artist-modal-album-th col-2">Time</th>
+                  <th class="artist-modal-album-th col-3">Link</th>
                 </tr>
               </thead>
               <tbody>
@@ -205,41 +207,44 @@ function artistDetailsTemplate(artist) {
     })
     .join('');
 
-  return `<h2 class="artist-details-name">${strArtist}</h2>
-        <img
-          class="artist-photo-details"
-          src="${strArtistThumb}"
-          alt=""
-        />
-        <ul class="artist-details-list">
-          <li class="artist-details-item">
-            <p class="artist-details-label">Years active</p>
-            <p class="artist-details-value">${intFormedYear || 'Unknown'}–${
-    intDiedYear || 'present'
-  }</p>
-          </li>
-          <li class="artist-details-item">
-            <p class="artist-details-label">Sex</p>
-            <p class="artist-details-value">${strGender}</p>
-          </li>
-          <li class="artist-details-item">
-            <p class="artist-details-label">Members</p>
-            <p class="artist-details-value">${intMembers}</p>
-          </li>
-          <li class="artist-details-item">
-            <p class="artist-details-label">Country</p>
-            <p class="artist-details-value">${strCountry}</p>
-          </li>
-          <li class="artist-details-item">
-            <p class="artist-details-label">Biography</p>
-            <p class="artist-details-value">${strBiographyEN}</p>
-          </li>
-          <li class="artist-details-item">
-            <ul class="artist-genres-list">${genresMarkup}</ul>
-          </li>
-        </ul>
-        <h3 class="section-artist-albums-title">Albums</h3>
-        <ul class="artist-album-cards">${albumsMarkup}</ul>`;
+  return `<h2 class="artist-modal-name">${strArtist}</h2>
+
+  <div class="artist-modal-info-wrapper">
+    <img
+      class="artist-modal-photo"
+      src="${strArtistThumb}"
+      alt="Photo ${strArtist}"
+    />
+    <div class="artist-modal-info-block">
+      <div class="artist-modal-info-list">
+        <dl class="artist-modal-info-item">
+          <dt class="artist-modal-info-label">Years active</dt>
+          <dd class="artist-modal-info-value">${
+            intFormedYear || 'information missing'
+          }–${intDiedYear || 'present'}</dd>
+        </dl>
+        <dl class="artist-modal-info-item">
+          <dt class="artist-modal-info-label">Sex</dt>
+          <dd class="artist-modal-info-value">${strGender}</dd>
+        </dl>
+        <dl class="artist-modal-info-item">
+          <dt class="artist-modal-info-label">Members</dt>
+          <dd class="artist-modal-info-value">${intMembers}</dd>
+        </dl>
+        <dl class="artist-modal-info-item">
+          <dt class="artist-modal-info-label">Country</dt>
+          <dd class="artist-modal-info-value">${strCountry}</dd>
+        </dl>
+      </div>
+      <dl class="artist-modal-bio">
+        <dt class="artist-modal-bio-label">Biography</dt>
+        <dd class="artist-modal-bio-value">${strBiographyEN}</dd>
+      </dl>
+      <ul class="artist-modal-genres-list artist-genres-list">${genresMarkup}</ul>
+    </div>
+  </div>
+  <h3 class="artist-modal-albums-title">Albums</h3>
+  <ul class="artist-modal-album-cards">${albumsMarkup}</ul>`;
 }
 
 export function createArtistDetails(artistInfo) {

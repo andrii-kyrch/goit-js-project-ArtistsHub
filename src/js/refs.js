@@ -3,7 +3,7 @@ export const refs = {
   loadMoreBtn: document.querySelector('.load-more-btn'),
   loader: document.querySelector('.loader'),
   artistDetailsModal: document.querySelector('.js-artist-details-backdrop'),
-  artistDetailsContainer: document.querySelector('.artist-details-info'),
+  artistDetailsContainer: document.querySelector('.artist-modal-content'),
   feedbacksContainer: document.querySelector('.swiper-wrapper'),
   paginationDotFirst: document.querySelector('.dot-first'),
   paginationDotMiddle: document.querySelector('.dot-middle'),
