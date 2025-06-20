@@ -13,7 +13,7 @@
     <script type="module" crossorigin src="/goit-js-project-ArtistsHub/index.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-project-ArtistsHub/assets/vendor-CIDwANU8.js">
     <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/vendor-BMD19QWe.css">
-    <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/index-DJnDfVvq.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/index-CHmDMEKf.css">
   </head>
   <body>
     <header class="page-header">
@@ -187,9 +187,14 @@
   </div>
 </section>
 
-      <div class="artist-details-backdrop js-artist-details-backdrop">
+      
+    </main>
+
+    
+
+    <div class="artist-details-backdrop js-artist-details-backdrop">
   <div class="container">
-    <div class="artist-details-modal">
+    <div class="artist-modal">
       <button class="modal-close-btn" type="button">
         <svg
           class="modal-close-btn-icon"
@@ -200,57 +205,73 @@
           <use href="/goit-js-project-ArtistsHub/assets/icons-B_PfIQ6b.svg#close"></use>
         </svg>
       </button>
-      <div class="artist-details-info">
-        <h2 class="artist-details-name"></h2>
-        <img class="artist-photo-details" src="" alt="" />
-        <ul class="artist-details-list">
-          <li class="artist-details-item">
-            <p class="artist-details-label">Years active</p>
-            <p class="artist-details-value"></p>
-          </li>
-          <li class="artist-details-item">
-            <p class="artist-details-label">Sex</p>
-            <p class="artist-details-value"></p>
-          </li>
-          <li class="artist-details-item">
-            <p class="artist-details-label">Members</p>
-            <p class="artist-details-value"></p>
-          </li>
-          <li class="artist-details-item">
-            <p class="artist-details-label">Country</p>
-            <p class="artist-details-value"></p>
-          </li>
-          <li class="artist-details-item">
-            <p class="artist-details-label">Biography</p>
-            <p class="artist-details-value"></p>
-          </li>
-          <li class="artist-details-item">
-            <ul class="artist-genres-list">
-              <li class="artist-genres-item"></li>
-              <li class="artist-genres-item"></li>
-              <li class="artist-genres-item"></li>
-              <li class="artist-genres-item"></li>
+      <div class="artist-modal-content">
+        <h2 class="artist-modal-name">The Cranberries</h2>
+
+        <div class="artist-modal-info-wrapper">
+          <img
+            class="artist-modal-photo"
+            src="../img/artist.webp"
+            alt="Photo ${strArtist}"
+          />
+          <div class="artist-modal-info-block">
+            <div class="artist-modal-info-list">
+              <dl class="artist-modal-info-item">
+                <dt class="artist-modal-info-label">Years active</dt>
+                <dd class="artist-modal-info-value">1990–2018</dd>
+              </dl>
+              <dl class="artist-modal-info-item">
+                <dt class="artist-modal-info-label">Sex</dt>
+                <dd class="artist-modal-info-value">Mixed</dd>
+              </dl>
+              <dl class="artist-modal-info-item">
+                <dt class="artist-modal-info-label">Members</dt>
+                <dd class="artist-modal-info-value">4</dd>
+              </dl>
+              <dl class="artist-modal-info-item">
+                <dt class="artist-modal-info-label">Country</dt>
+                <dd class="artist-modal-info-value">Limerick, Ireland</dd>
+              </dl>
+            </div>
+            <dl class="artist-modal-bio">
+              <dt class="artist-modal-bio-label">Biography</dt>
+              <dd class="artist-modal-bio-value">
+                The Cranberries were an Irish rock band formed in Limerick,
+                Ireland. Originally named the Cranberry Saw Us, the band was
+                formed in 1989 by lead singer Niall Quinn, guitarist Noel Hogan,
+                bassist Mike Hogan, and drummer Fergal Lawler.
+              </dd>
+            </dl>
+            <ul class="artist-modal-genres-list artist-genres-list">
+              <li class="artist-modal-genres-item artist-genres-item">
+                Rock/Pop
+              </li>
+              <li class="artist-modal-genres-item artist-genres-item">
+                Alternative Rock
+              </li>
             </ul>
-          </li>
-        </ul>
-        <h3 class="section-artist-albums-title">Albums</h3>
-        <ul class="artist-album-cards">
-          <li class="artist-album-card">
-            <table>
-              <caption class="albums-name"></caption>
+          </div>
+        </div>
+        <h3 class="artist-modal-albums-title">Albums</h3>
+        <ul class="artist-modal-album-cards">
+          <li class="artist-modal-album-card">
+            <table class="artist-modal-album-table">
+              <caption class="artist-modal-album-name">
+                U2
+              </caption>
               <thead>
-                <tr class="row">
-                  <th class="col-1">Track</th>
-                  <th class="col-2">Time</th>
-                  <th class="col-3">Link</th>
+                <tr class="artist-modal-album-row">
+                  <th class="artist-modal-album-th col-1">Track</th>
+                  <th class="artist-modal-album-th col-2">Time</th>
+                  <th class="artist-modal-album-th col-3">Link</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="row">
-                  <td class="col-1"></td>
-                  <td class="col-2"></td>
-                  <td class="col-3">
-                    <a class="song-link" href="https://" target="_blank">
+                <tr class="artist-modal-album-row">
+                  <td class="artist-modal-album-track col-1">Rip Me Apart</td>
+                  <td class="artist-modal-album-time col-2">3:02</td>
+                  <td class="artist-modal-album-link col-3">
+                    <a class="clip-link" href="https://" target="_blank">
                       <svg width="24" height="24">
                         <use href="/goit-js-project-ArtistsHub/assets/icons-B_PfIQ6b.svg#youtube"></use>
                       </svg>
@@ -266,10 +287,6 @@
   </div>
 </div>
 
-      
-    </main>
-
-    
 
   </body>
 </html>
