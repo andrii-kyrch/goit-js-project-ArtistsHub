@@ -21,6 +21,9 @@ async function loadArtists() {
     console.log(error);
   }
   hideLoader();
+  if (page > 1) {
+    scrollArtists();
+  }
 }
 
 loadArtists();
@@ -29,3 +32,12 @@ refs.loadMoreBtn.addEventListener('click', async () => {
   page++;
   await loadArtists();
 });
+
+function scrollArtists() {
+  const card = refs.artistsListContainer.firstElementChild;
+  const height = card.getBoundingClientRect().height;
+  scrollBy({
+    behavior: 'smooth',
+    top: height,
+  });
+}
