@@ -177,6 +177,7 @@ tbody .col-3 {
   margin-left: auto;
   align-items: center;
   justify-content: center;
+  fill: var(--color-text);
   transition: opacity 250ms linear;
 
   &:hover,
