@@ -158,10 +158,12 @@ tbody .artist-modal-album-row:nth-child(even) {
 }
 
 .col-2 {
+  min-width: 50px;
   text-align: center;
 }
 
 .col-3 {
+  width: 40px;
   text-align: right;
   border-radius: 0 8px 8px 0;
 }
