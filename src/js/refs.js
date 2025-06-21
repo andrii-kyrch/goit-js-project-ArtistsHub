@@ -8,4 +8,6 @@ export const refs = {
   paginationDotFirst: document.querySelector('.dot-first'),
   paginationDotMiddle: document.querySelector('.dot-middle'),
   paginationDotLast: document.querySelector('.dot-last'),
+  modalLoader: document.querySelector('.modal-loader-wrapper .loader'),
+  artistModal: document.querySelector('.artist-modal'),
 };

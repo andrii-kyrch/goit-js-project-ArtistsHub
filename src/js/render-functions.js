@@ -47,6 +47,14 @@ export function hideLoader() {
   refs.loader.classList.add('is-hidden');
 }
 
+export function showModalLoader() {
+  refs.modalLoader.classList.remove('is-hidden');
+}
+
+export function hideModalLoader() {
+  refs.modalLoader.classList.add('is-hidden');
+}
+
 export function updateLoadMoreVisibility(currentPage, maxPage) {
   if (currentPage < maxPage) {
     refs.loadMoreBtn.classList.remove('is-hidden');
