@@ -116,7 +116,6 @@
 
 @media only screen and (min-width: 1440px) {
   .hero-section {
-    max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 215px;
@@ -128,7 +127,8 @@
       ),
       linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
       url('../img/hero/hero-bg.webp');
-    background-position: top, bottom, right 64px bottom;
+    background-position: top, bottom,
+      right calc((100vw - 1440px) / 2 + 64px) bottom;
     background-size: 100% 80px, 100% 137px, 641px 900px;
   }
 

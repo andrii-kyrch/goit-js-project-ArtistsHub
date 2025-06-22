@@ -38,6 +38,6 @@ function scrollArtists() {
   const height = card.getBoundingClientRect().height;
   scrollBy({
     behavior: 'smooth',
-    top: height / 1.5,
+    top: height / 2,
   });
 }
