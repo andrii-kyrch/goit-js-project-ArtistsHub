@@ -185,6 +185,7 @@ function artistDetailsTemplate(artist) {
                       class="clip-link"
                       href="${movie}"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <svg width="24" height="24">
                         <use href="${iconsPath}#youtube"></use>
