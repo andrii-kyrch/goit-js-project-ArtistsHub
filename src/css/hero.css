@@ -2,37 +2,34 @@
   padding-top: 64px;
   padding-bottom: 449px;
   background-color: #23132b;
-  background-image: linear-gradient(
-      0deg,
-      rgba(35, 19, 43, 0) 0%,
-      rgba(6, 3, 7, 1) 100%
-    ),
-    linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
+  background-image:
+    linear-gradient(0deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
+    linear-gradient(180deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
     url('../img/hero/mobile-hero-bg.png');
   background-repeat: no-repeat;
   background-position: top, bottom, bottom;
-  background-size: 100% 80px, 100% 106px, 280px 385px;
+  background-size:
+    100% 80px,
+    100% 106px,
+    280px 385px;
 }
 
-@media only screen and (min-resolution: 192dpi) and (max-width: 767px) {
+@media only screen and (resolution >= 192dpi) and (width <= 767px) {
   .hero-section {
-    background-image: linear-gradient(
-        0deg,
-        rgba(35, 19, 43, 0) 0%,
-        rgba(6, 3, 7, 1) 100%
-      ),
-      linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
+    background-image:
+      linear-gradient(0deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
+      linear-gradient(180deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
       url('../img/hero/mobile-hero-bg@2x.png');
   }
 }
 
 .page-title {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: Epilogue, sans-serif;
   font-size: 48px;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.01em;
-  margin-bottom: 20px;
 }
 
 .hero-text {
@@ -42,21 +39,25 @@
 .btn-section {
   display: flex;
   column-gap: 12px;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-width: 100%;
+  padding: 10px 24px;
   font-weight: 500;
   color: var(--color-text);
+  background-color: #764191;
   border: none;
   border-radius: 12px;
-  padding: 10px 24px;
-  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
-    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
-    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-  background-color: #764191;
+  box-shadow:
+    0 1px 2px 0 rgb(6 3 7 / 5%),
+    inset 0 -2px 1px 0 rgb(0 0 0 / 20%),
+    inset 0 0 0 1px rgb(6 3 7 / 15%),
+    inset 0 2px 1px 0 rgb(255 255 255 / 25%),
+    inset 0 32px 24px 0 rgb(255 255 255 / 5%);
   fill: var(--color-text);
-  transition: box-shadow, opacity 250ms linear;
+  transition:
+    box-shadow,
+    opacity 250ms linear;
 
   &:hover,
   &:focus {
@@ -64,22 +65,22 @@
   }
 
   &:active {
-    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
+    box-shadow: 0 1px 2px 0 rgb(6 3 7 / 5%);
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (width >= 768px) {
   .hero-section {
     padding-top: 32px;
     padding-bottom: 664px;
-    background-image: linear-gradient(
-        0deg,
-        rgba(35, 19, 43, 0) 0%,
-        rgba(6, 3, 7, 1) 100%
-      ),
-      linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
+    background-image:
+      linear-gradient(0deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
+      linear-gradient(180deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
       url('../img/hero/tablet-hero-bg.png');
-    background-size: 100% 125px, 100% 137px, 704px 632px;
+    background-size:
+      100% 125px,
+      100% 137px,
+      704px 632px;
   }
 
   .page-title {
@@ -87,8 +88,8 @@
   }
 
   .hero-text {
-    font-size: 20px;
     margin-bottom: 32px;
+    font-size: 20px;
   }
 
   .page-title,
@@ -97,39 +98,38 @@
   }
 
   .hero-btn {
-    min-width: 246px;
     display: inline-flex;
+    min-width: 246px;
   }
 }
 
-@media only screen and (min-resolution: 192dpi) and (min-width: 768px) {
+@media only screen and (resolution >= 192dpi) and (width >= 768px) {
   .hero-section {
-    background-image: linear-gradient(
-        0deg,
-        rgba(35, 19, 43, 0) 0%,
-        rgba(6, 3, 7, 1) 100%
-      ),
-      linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
+    background-image:
+      linear-gradient(0deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
+      linear-gradient(180deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
       url('../img/hero/tablet-hero-bg@2x.png');
   }
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (width >= 1440px) {
   .hero-section {
-    margin-left: auto;
-    margin-right: auto;
     padding-top: 215px;
     padding-bottom: 215px;
-    background-image: linear-gradient(
-        0deg,
-        rgba(35, 19, 43, 0) 0%,
-        rgba(6, 3, 7, 1) 100%
-      ),
-      linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
+    margin-right: auto;
+    margin-left: auto;
+    background-image:
+      linear-gradient(0deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
+      linear-gradient(180deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
       url('../img/hero/hero-bg.webp');
-    background-position: top, bottom,
+    background-position:
+      top,
+      bottom,
       right calc((100vw - 1440px) / 2 + 64px) bottom;
-    background-size: 100% 80px, 100% 137px, 641px 900px;
+    background-size:
+      100% 80px,
+      100% 137px,
+      641px 900px;
   }
 
   .page-title {
@@ -146,14 +146,11 @@
   }
 }
 
-@media only screen and (min-resolution: 192dpi) and (min-width: 1440px) {
+@media only screen and (resolution >= 192dpi) and (width >= 1440px) {
   .hero-section {
-    background-image: linear-gradient(
-        0deg,
-        rgba(35, 19, 43, 0) 0%,
-        rgba(6, 3, 7, 1) 100%
-      ),
-      linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, rgba(6, 3, 7, 1) 100%),
+    background-image:
+      linear-gradient(0deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
+      linear-gradient(180deg, rgb(35 19 43 / 0%) 0%, rgb(6 3 7 / 100%) 100%),
       url('../img/hero/hero-bg@2x.webp');
   }
 }

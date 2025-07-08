@@ -3,45 +3,49 @@
   top: 0;
   left: 0;
   z-index: 9999;
+  visibility: hidden;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   padding-top: 64px;
   padding-bottom: 64px;
   overflow: auto;
+  background-color: rgb(0 0 0 / 50%);
   opacity: 0;
-  visibility: hidden;
-  transition: visibility 250ms linear, opacity 250ms linear;
+  transition:
+    visibility 250ms linear,
+    opacity 250ms linear;
 }
 
 .artist-details-backdrop.is-open {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
 }
 
 .artist-modal {
   position: relative;
   padding: 52px 4px;
-  border-radius: 16px;
   background-color: var(--color-bg);
-  transition: opacity 250ms linear, visibility 250ms linear;
+  border-radius: 16px;
+  transition:
+    opacity 250ms linear,
+    visibility 250ms linear;
 }
 
 .artist-modal.is-hidden {
-  opacity: 0;
   visibility: hidden;
+  opacity: 0;
 }
 
 .modal-close-btn {
   position: absolute;
   top: 16px;
   right: 16px;
-  background-color: transparent;
-  border: 0;
   padding: 0;
   line-height: 0;
+  background-color: transparent;
+  border: 0;
   fill: var(--color-text);
-  transition: fill 250 ms linear;
+  transition: fill 250ms linear;
 
   &:hover,
   &:focus {
@@ -54,22 +58,22 @@
 }
 
 .artist-modal-name {
-  font-family: var(--second-family);
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  text-align: center;
   margin-bottom: 16px;
+  font-family: var(--second-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  letter-spacing: -0.01em;
 }
 
 .artist-modal-photo {
   width: 100%;
   height: 167px;
-  object-position: center top;
-  object-fit: cover;
-  border-radius: 16px;
   margin-bottom: 32px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
 }
 
 .artist-modal-info-list {
@@ -97,12 +101,12 @@
 }
 
 .artist-modal-albums-title {
+  margin-bottom: 16px;
   font-family: var(--second-family);
-  font-weight: 700;
   font-size: 24px;
+  font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.01em;
-  margin-bottom: 16px;
 }
 
 .artist-modal-album-cards {
@@ -112,9 +116,9 @@
 }
 
 .artist-modal-album-card {
+  padding: 14px 11px;
   background-color: #1e1c1f;
   border-radius: 16px;
-  padding: 14px 11px;
 }
 
 table {
@@ -124,10 +128,10 @@ table {
 }
 
 caption {
+  margin-bottom: 12px;
   font-size: 16px;
   font-weight: 600;
   text-align: left;
-  margin-bottom: 12px;
   background-color: #1e1c1f;
 }
 
@@ -142,7 +146,7 @@ td {
 thead .artist-modal-album-row {
   font-size: 8px;
   font-weight: 600;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgb(255 255 255 / 5%);
 }
 
 tbody .artist-modal-album-row {
@@ -150,7 +154,7 @@ tbody .artist-modal-album-row {
 }
 
 tbody .artist-modal-album-row:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255 255 255 / 10%);
 }
 
 .col-1 {
@@ -173,12 +177,12 @@ tbody .col-3 {
 }
 
 .clip-link {
-  width: 24px;
   display: flex;
-  margin-top: auto;
-  margin-left: auto;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  margin-top: auto;
+  margin-left: auto;
   fill: var(--color-text);
   transition: opacity 250ms linear;
 
@@ -196,25 +200,25 @@ tbody .col-3 {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   z-index: 9999;
+  transform: translate(-50%, -50%);
 }
 
 .modal-loader-wrapper .loader,
-.modal-loader-wrapper .loader:after {
+.modal-loader-wrapper .loader::after {
   width: 48px;
   height: 48px;
   border: 5px solid #764191;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .artist-modal {
     padding: 64px 24px;
   }
 
   .artist-modal-name {
-    font-size: 32px;
     margin-bottom: 48px;
+    font-size: 32px;
   }
 
   .artist-modal-photo {
@@ -223,8 +227,8 @@ tbody .col-3 {
 
   .artist-modal-info-list {
     display: flex;
-    gap: 24px;
     flex-wrap: wrap;
+    gap: 24px;
     margin-bottom: 24px;
   }
 
@@ -245,8 +249,7 @@ tbody .col-3 {
   }
 
   .artist-modal-album-cards {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     column-gap: 32px;
   }
 
@@ -255,15 +258,15 @@ tbody .col-3 {
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (width >= 1440px) {
   .artist-modal {
-    padding-left: 64px;
     padding-right: 64px;
+    padding-left: 64px;
   }
 
   .artist-modal-photo {
-    height: 354px;
     align-self: flex-start;
+    height: 354px;
   }
 
   .artist-modal-info-wrapper {

@@ -4,13 +4,13 @@
   | default @import url()
   |============================
 */
+
 /* Common styles */
-@import 'modern-normalize/modern-normalize.css';
+@import url('modern-normalize/modern-normalize.css');
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./container.css');
-
-@import 'css-star-rating/css/star-rating.css';
+@import url('css-star-rating/css/star-rating.css');
 
 /* Sections style */
 @import url('./header.css');

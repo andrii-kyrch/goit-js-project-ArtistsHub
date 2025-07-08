@@ -4,7 +4,7 @@
   --font-family: 'IBM Plex Sans', sans-serif;
   --second-family: 'Epilogue', sans-serif;
   --third-family: 'Roboto', sans-serif;
-  --color-text: #ffffff;
+  --color-text: #fff;
   --color-bg: #060307;
 }
 
@@ -31,11 +31,11 @@ body.modal-open {
   position: absolute;
   width: 1px;
   height: 1px;
-  margin: -1px;
-  border: 0;
   padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
+  margin: -1px;
   overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
 }

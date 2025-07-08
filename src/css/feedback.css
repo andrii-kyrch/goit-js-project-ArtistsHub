@@ -13,14 +13,17 @@
 }
 
 .feedback-item {
-  min-height: 210px;
   display: flex;
   flex-direction: column;
-  /* ?=========================================== */
-  /* row-gap: 32px; */
-  /* ?=========================================== */
   align-items: center;
   justify-content: space-between;
+  min-height: 210px;
+
+  /* ?=========================================== */
+
+  /* row-gap: 32px; */
+
+  /* ?=========================================== */
 }
 
 .feedback-rating {
@@ -35,8 +38,8 @@
   font-family: var(--second-family);
   font-weight: 700;
   line-height: 1.4;
-  letter-spacing: -0.01em;
   text-align: center;
+  letter-spacing: -0.01em;
 }
 
 .feedback-author-name {
@@ -45,9 +48,9 @@
 
 .custom-pagination {
   display: flex;
+  gap: 9px;
   justify-content: center;
   padding: 10px;
-  gap: 9px;
 }
 
 .dot {
@@ -61,22 +64,24 @@
 
 .dot.active {
   opacity: 1;
-  animation: dotPulse 250ms ease;
+  animation: dot-pulse 250ms ease;
 }
 
-@keyframes dotPulse {
+@keyframes dot-pulse {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(0.75);
   }
+
   100% {
     transform: scale(1);
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .feedback-wrapper {
     display: flex;
     align-items: center;
@@ -85,13 +90,13 @@
   .feedback-prev-btn,
   .feedback-next-btn {
     display: block;
-    line-height: 0;
     padding: 11px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
+    line-height: 0;
     background-color: transparent;
-    transition: opacity 250ms linear;
+    border: 1px solid rgb(255 255 255 / 50%);
+    border-radius: 8px;
     fill: var(--color-text);
+    transition: opacity 250ms linear;
 
     &:hover,
     &:focus {
@@ -121,7 +126,7 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (width >= 1440px) {
   .feedback-wrapper {
     margin-bottom: 75px;
   }

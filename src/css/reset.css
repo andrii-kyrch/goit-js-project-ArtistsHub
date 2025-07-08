@@ -13,13 +13,13 @@ p:last-child {
 }
 
 ul {
-  margin: 0;
   padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 a {
-  color: currentColor;
+  color: currentcolor;
   text-decoration: none;
 }
 
