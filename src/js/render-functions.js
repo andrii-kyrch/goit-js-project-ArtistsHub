@@ -3,7 +3,7 @@ import iconsPath from '../img/icons.svg?url';
 
 function artistGenresTemplate(genres) {
   return genres
-    .map(genre => `<li class="artist-genres-item">${genre}</li>`)
+    .map(genre => /*html*/ `<li class="artist-genres-item">${genre}</li>`)
     .join('');
 }
 
@@ -12,7 +12,7 @@ function artistTemplate(artist) {
 
   const genresMarkup = artistGenresTemplate(genres);
 
-  return `<li class="artists-item">
+  return /*html*/ `<li class="artists-item">
         <img
           src="${strArtistThumb}"
           alt="Artist ${strArtist}"
