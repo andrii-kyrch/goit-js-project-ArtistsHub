@@ -1,9 +1,12 @@
 import { refs } from './refs';
 import iconsPath from '../img/icons.svg?url';
 
-function artistGenresTemplate(genres) {
-  return genres
-    .map(genre => /*html*/ `<li class="artist-genres-item">${genre}</li>`)
+function artistGenresTemplate(artistGenres) {
+  return artistGenres
+    .map(
+      artistGenre =>
+        /*html*/ `<li class="artist-genres-item">${artistGenre}</li>`
+    )
     .join('');
 }
 
@@ -259,4 +262,17 @@ function artistDetailsTemplate(artist) {
 export function createArtistDetails(artistInfo) {
   const markup = artistDetailsTemplate(artistInfo);
   refs.artistDetailsContainer.innerHTML = markup;
+}
+
+function genreItemTemplate({ genre }) {
+  return /*html*/ `<li class="genre-item" tabindex="0" role="option"
+                aria-selected="false">${genre}</li>`;
+}
+
+export function createGenresList(genres) {
+  const markup = genres
+    .toSorted((a, b) => a.genre.localeCompare(b.genre))
+    .map(genreItemTemplate)
+    .join('');
+  refs.genreList.innerHTML = markup;
 }

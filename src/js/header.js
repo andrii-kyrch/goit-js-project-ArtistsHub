@@ -1,9 +1,4 @@
-const refs = {
-  mobileMenuOpenBtn: document.querySelector('.mobile-menu-open-btn'),
-  mobileMenuCloseBtn: document.querySelector('.mobile-menu-close-btn'),
-  mobileMenu: document.querySelector('.mobile-menu'),
-  mobileMenuLinks: document.querySelectorAll('.mobile-menu-link'),
-};
+import { refs } from './refs.js';
 
 refs.mobileMenuOpenBtn.addEventListener('click', () => {
   refs.mobileMenu.classList.add('is-open');

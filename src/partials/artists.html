@@ -2,14 +2,106 @@
   <div class="container artists-container">
     <h2 class="artists-title">Artists</h2>
     <p class="artists-text">Explore Your New Favorite Artists</p>
-    <ul class="artists-list"></ul>
+    <div class="artists-content">
+      <div class="filters">
+        <p class="filters-title">Filters</p>
+        <div class="filters-panel">
+          <button
+            class="filters-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="filters-menu"
+          >
+            Search and Filters
+            <svg class="filters-toggle-icon" width="24" height="24">
+              <use href="img/icons.svg#chevron-down"></use>
+            </svg>
+          </button>
+          <form id="filters-menu" class="filters-menu">
+            <div class="filters-search-wrapper">
+              <label for="search" class="search-label visually-hidden">
+                Search
+              </label>
+              <input
+                id="search"
+                class="filters-search"
+                type="search"
+                name="search"
+                placeholder="Search"
+                minlength="3"
+                3
+              />
+              <svg class="filters-search-icon" width="24" height="24">
+                <use href="img/icons.svg#search"></use>
+              </svg>
+            </div>
+            <div class="sorting-dropdown js-dropdown">
+              <button
+                class="sorting-toggle"
+                aria-expanded="false"
+                aria-controls="sorting-list"
+                type="button"
+              >
+                Sorting
+                <svg class="sorting-toggle-icon" width="24" height="24">
+                  <use href="img/icons.svg#chevron-down"></use>
+                </svg>
+              </button>
+              <ul id="sorting-list" class="sorting-list" role="listbox">
+                <li
+                  class="sorting-item is-active"
+                  tabindex="0"
+                  role="option"
+                  aria-selected="true"
+                >
+                  Default
+                </li>
+                <li
+                  class="sorting-item"
+                  tabindex="0"
+                  role="option"
+                  aria-selected="false"
+                  data-sort="asc"
+                >
+                  A-Z
+                </li>
+                <li
+                  class="sorting-item"
+                  tabindex="0"
+                  role="option"
+                  aria-selected="false"
+                  data-sort="desc"
+                >
+                  Z-A
+                </li>
+              </ul>
+            </div>
+            <div class="genre-dropdown js-dropdown">
+              <button
+                class="genre-toggle"
+                aria-expanded="false"
+                aria-controls="genre-list"
+                type="button"
+              >
+                Genre
+                <svg class="genre-toggle-icon" width="24" height="24">
+                  <use href="img/icons.svg#chevron-down"></use>
+                </svg>
+              </button>
+              <ul id="genre-list" class="genre-list" role="listbox"></ul>
+            </div>
+          </form>
+        </div>
+      </div>
+      <ul class="artists-list"></ul>
+    </div>
     <div class="loader-wrapper">
       <div class="loader is-hidden"></div>
     </div>
     <button class="btn-section load-more-btn">
       Load More
       <svg class="icon-load-more-btn" width="24" height="24">
-        <use href="./img/icons.svg#down-arrow-alt"></use>
+        <use href="img/icons.svg#down-arrow-alt"></use>
       </svg>
     </button>
   </div>

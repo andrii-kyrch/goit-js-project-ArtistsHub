@@ -10,4 +10,13 @@ export const refs = {
   paginationDotLast: document.querySelector('.dot-last'),
   modalLoader: document.querySelector('.modal-loader-wrapper .loader'),
   artistModal: document.querySelector('.artist-modal'),
+  genreList: document.querySelector('.genre-list'),
+
+  mobileMenuOpenBtn: document.querySelector('.mobile-menu-open-btn'),
+  mobileMenuCloseBtn: document.querySelector('.mobile-menu-close-btn'),
+  mobileMenu: document.querySelector('.mobile-menu'),
+  mobileMenuLinks: document.querySelectorAll('.mobile-menu-link'),
+  filtersToggle: document.querySelector('.filters-toggle'),
+  filtersMenu: document.querySelector('.filters-menu'),
+  filtersPanel: document.querySelector('.filters-panel'),
 };
