@@ -17,7 +17,7 @@ async function loadInitialData() {
   showLoader();
   try {
     const [artistsResponse, genresResponse] = await Promise.all([
-      getArtists(perPage, page, undefined, sortName, genre),
+      getArtists({ perPage, page, sortName, genre }),
       getGenres(),
     ]);
 
@@ -28,7 +28,7 @@ async function loadInitialData() {
 
     createGenresList(genresResponse);
   } catch (error) {
-    console.log(error);
+    console.error('Error loading initial data:', error);
   } finally {
     hideLoader();
   }
@@ -38,18 +38,18 @@ async function loadMoreArtists() {
   page++;
   showLoader();
   try {
-    const { artists, totalArtists } = await getArtists(
+    const { artists, totalArtists } = await getArtists({
       perPage,
       page,
-      undefined,
-      sortName
-    );
+      sortName,
+      genre,
+    });
     const maxPage = Math.ceil(totalArtists / perPage);
     createArtistsList(artists);
     updateLoadMoreVisibility(page, maxPage);
     scrollArtists();
   } catch (error) {
-    console.log(error);
+    console.error('Error loading more artists:', error);
   }
   hideLoader();
 }
@@ -59,18 +59,17 @@ async function reloadArtists() {
   refs.artistsListContainer.innerHTML = '';
   showLoader();
   try {
-    const { artists, totalArtists } = await getArtists(
+    const { artists, totalArtists } = await getArtists({
       perPage,
       page,
-      undefined,
       sortName,
-      genre
-    );
+      genre,
+    });
     const maxPage = Math.ceil(totalArtists / perPage);
     createArtistsList(artists);
     updateLoadMoreVisibility(page, maxPage);
   } catch (error) {
-    console.log(error);
+    console.error('Error reloading artists:', error);
   } finally {
     hideLoader();
   }
@@ -82,6 +81,7 @@ refs.loadMoreBtn.addEventListener('click', loadMoreArtists);
 
 function scrollArtists() {
   const card = refs.artistsListContainer.firstElementChild;
+  if (!card) return;
   const height = card.getBoundingClientRect().height;
   scrollBy({
     behavior: 'smooth',
@@ -155,7 +155,11 @@ function handleFiltersSelection(selectedItem) {
     openedDropdown
       .querySelector('button')
       ?.setAttribute('aria-expanded', 'false');
-    document.removeEventListener('click', handleOutsideClick);
+    const isDesktop =
+      window.getComputedStyle(refs.filtersToggle).display === 'none';
+    if (isDesktop) {
+      document.removeEventListener('click', handleOutsideClick);
+    }
   }
 }
 
@@ -166,6 +170,9 @@ function handleDropdownToggle(target) {
   const currentDropdown = currentBtn.closest('.js-dropdown');
   if (!currentDropdown) return;
 
+  const isDesktop =
+    window.getComputedStyle(refs.filtersToggle).display === 'none';
+
   const prevOpenedDropdown = refs.filtersMenu.querySelector('.is-open');
 
   if (prevOpenedDropdown && prevOpenedDropdown !== currentDropdown) {
@@ -173,14 +180,19 @@ function handleDropdownToggle(target) {
     prevOpenedDropdown
       .querySelector('button')
       ?.setAttribute('aria-expanded', 'false');
+    if (isDesktop) {
+      document.removeEventListener('click', handleOutsideClick);
+    }
   }
 
   const isDropdownOpen = currentDropdown.classList.toggle('is-open');
   currentBtn.setAttribute('aria-expanded', isDropdownOpen);
 
-  if (isDropdownOpen) {
-    document.addEventListener('click', handleOutsideClick);
-  } else {
-    document.removeEventListener('click', handleOutsideClick);
+  if (isDesktop) {
+    if (isDropdownOpen) {
+      document.addEventListener('click', handleOutsideClick);
+    } else {
+      document.removeEventListener('click', handleOutsideClick);
+    }
   }
 }

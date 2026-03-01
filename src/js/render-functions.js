@@ -26,7 +26,7 @@ function artistTemplate(artist) {
         </ul>
         <h3 class="artist-name">${strArtist}</h3>
         <p class="artist-text">
-          ${strBiographyEN.split(' ').slice(0, 10).join(' ')} ...
+          ${(strBiographyEN || '').split(' ').slice(0, 10).join(' ')} ...
         </p>
         <button class="artist-btn" data-artist-id="${_id}">
           Learn More
