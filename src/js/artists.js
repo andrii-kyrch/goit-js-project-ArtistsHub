@@ -87,6 +87,7 @@ async function reloadArtists() {
       createArtistsList(artists);
     }
     updateLoadMoreVisibility(page, maxPage);
+    updateResetButtonStatus();
   } catch (error) {
     console.error('Error reloading artists:', error);
   } finally {
@@ -94,9 +95,44 @@ async function reloadArtists() {
   }
 }
 
+function handleReset() {
+  searchQuery = undefined;
+  sortName = undefined;
+  genre = undefined;
+
+  // Скидаємо стандартні елементи форми (інпут пошуку)
+  refs.filtersMenu.reset();
+
+  // Скидаємо UI сортування до дефолту
+  const sortingItems = refs.filtersMenu.querySelectorAll('.sorting-item');
+  sortingItems.forEach(item => {
+    const isDefault = !item.dataset.sort;
+    item.classList.toggle('is-active', isDefault);
+    item.setAttribute('aria-selected', isDefault);
+  });
+
+  // Очищуємо UI жанрів
+  const genreItems = refs.filtersMenu.querySelectorAll('.genre-item');
+  genreItems.forEach(item => {
+    item.classList.remove('is-active');
+    item.setAttribute('aria-selected', 'false');
+  });
+
+  reloadArtists();
+}
+
 loadInitialData();
 
 refs.loadMoreBtn.addEventListener('click', loadMoreArtists);
+
+if (refs.filtersResetBtn) {
+  refs.filtersResetBtn.addEventListener('click', handleReset);
+}
+
+function updateResetButtonStatus() {
+  const isDirty = !!(searchQuery || sortName || genre);
+  if (refs.filtersResetBtn) refs.filtersResetBtn.disabled = !isDirty;
+}
 
 function scrollArtists() {
   const card = refs.artistsListContainer.firstElementChild;

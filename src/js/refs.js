@@ -21,4 +21,5 @@ export const refs = {
   filtersPanel: document.querySelector('.filters-panel'),
   emptyState: document.querySelector('.empty-state'),
   inputSearch: document.querySelector('.filters-search'),
+  filtersResetBtn: document.querySelector('.filters-reset-btn'),
 };
