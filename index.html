@@ -13,7 +13,7 @@
     <script type="module" crossorigin src="/goit-js-project-ArtistsHub/index.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-project-ArtistsHub/assets/vendor-BiXr4j9g.js">
     <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/vendor-BMD19QWe.css">
-    <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/index-bcIXRgDZ.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-project-ArtistsHub/assets/index-DH_g-2iI.css">
   </head>
   <body>
     <header class="page-header">
@@ -21,7 +21,7 @@
     <nav class="page-nav">
       <a href="./index.html" class="logo">
         <svg class="logo-icon" width="106" height="30">
-          <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#icon-logo"></use>
+          <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#icon-logo"></use>
         </svg>
       </a>
       <ul class="menu">
@@ -43,7 +43,7 @@
         height="24"
         aria-label="Open icon menu"
       >
-        <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#icon-mobile-menu"></use>
+        <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#icon-mobile-menu"></use>
       </svg>
     </button>
   </div>
@@ -53,7 +53,7 @@
     <div class="mobile-menu-header">
       <a href="./index.html" class="logo">
         <svg class="logo-icon" width="106" height="30">
-          <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#icon-logo"></use>
+          <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#icon-logo"></use>
         </svg>
       </a>
       <button
@@ -67,7 +67,7 @@
           height="24"
           aria-label="Close icon menu"
         >
-          <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#close"></use>
+          <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#close"></use>
         </svg>
       </button>
     </div>
@@ -99,7 +99,7 @@
       <a href="#artists" class="btn-section hero-btn"
         >Explore Artists
         <svg class="hero-btn-icon" width="24" height="24">
-          <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#right-arrow"></use>
+          <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#right-arrow"></use>
         </svg>
       </a>
     </div>
@@ -378,7 +378,7 @@
           >
             Search and Filters
             <svg class="filters-toggle-icon" width="24" height="24">
-              <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#chevron-down"></use>
+              <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#chevron-down"></use>
             </svg>
           </button>
           <form id="filters-menu" class="filters-menu">
@@ -395,9 +395,11 @@
                 minlength="3"
                 3
               />
-              <svg class="filters-search-icon" width="24" height="24">
-                <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#search"></use>
-              </svg>
+              <button class="search-btn" type="submit">
+                <svg class="filters-search-icon" width="24" height="24">
+                  <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#search"></use>
+                </svg>
+              </button>
             </div>
             <div class="sorting-dropdown js-dropdown">
               <button
@@ -408,7 +410,7 @@
               >
                 Sorting
                 <svg class="sorting-toggle-icon" width="24" height="24">
-                  <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#chevron-down"></use>
+                  <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#chevron-down"></use>
                 </svg>
               </button>
               <ul id="sorting-list" class="sorting-list" role="listbox">
@@ -449,7 +451,7 @@
               >
                 Genre
                 <svg class="genre-toggle-icon" width="24" height="24">
-                  <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#chevron-down"></use>
+                  <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#chevron-down"></use>
                 </svg>
               </button>
               <ul id="genre-list" class="genre-list" role="listbox"></ul>
@@ -457,7 +459,22 @@
           </form>
         </div>
       </div>
-      <ul class="artists-list"></ul>
+      <div class="artists-list-content">
+        <ul class="artists-list"></ul>
+        <div class="empty-state">
+          <span class="empty-state-icon">
+            <svg width="40" height="40">
+              <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#info"></use>
+            </svg>
+          </span>
+          <h3 class="empty-state-title">Silence on the stage...</h3>
+          <p class="empty-state-text">
+            Looks like no artists match your filters.<br />Try changing them or
+            hit “Reset Filters” to bring back the beat.
+          </p>
+          <button class="reset-filters-btn" type="button">Reset filters</button>
+        </div>
+      </div>
     </div>
     <div class="loader-wrapper">
       <div class="loader is-hidden"></div>
@@ -465,7 +482,7 @@
     <button class="btn-section load-more-btn">
       Load More
       <svg class="icon-load-more-btn" width="24" height="24">
-        <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#down-arrow-alt"></use>
+        <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#down-arrow-alt"></use>
       </svg>
     </button>
   </div>
@@ -490,7 +507,7 @@
     </picture>
     <div class="about-us-content">
       <svg class="about-us-logo" width="64" height="64">
-        <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#logo-icon" />
+        <use xlink:href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#logo-icon" />
       </svg>
       <h2 class="about-us-title">About ArtistsHub</h2>
       <p class="about-us-text">
@@ -512,7 +529,7 @@
         aria-label="Previous feedback"
       >
         <svg width="24" height="24">
-          <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#left-arrow-alt"></use>
+          <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#left-arrow-alt"></use>
         </svg>
       </button>
       <div class="swiper">
@@ -524,7 +541,7 @@
         aria-label="Next feedback"
       >
         <svg width="24" height="24">
-          <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#right-arrow-alt"></use>
+          <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#right-arrow-alt"></use>
         </svg>
       </button>
     </div>
@@ -544,7 +561,7 @@
     <div class="footer-content">
       <a href="./index.html" class="logo logo-footer">
         <svg class="logo-icon" width="84" height="36" aria-label="Logo">
-          <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#icon-logo"></use>
+          <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#icon-logo"></use>
         </svg>
       </a>
       <ul class="footer-nav-list">
@@ -569,7 +586,7 @@
               rel="noopener noreferrer"
             >
               <svg class="social-icon" width="40" height="40">
-                <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#instagram"></use>
+                <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#instagram"></use>
               </svg>
             </a>
           </li>
@@ -582,7 +599,7 @@
               rel="noopener noreferrer"
             >
               <svg class="social-icon" width="40" height="40">
-                <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#facebook"></use>
+                <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#facebook"></use>
               </svg>
             </a>
           </li>
@@ -595,7 +612,7 @@
               rel="noopener noreferrer"
             >
               <svg class="social-icon" width="40" height="40">
-                <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#youtube"></use>
+                <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#youtube"></use>
               </svg>
             </a>
           </li>
@@ -616,7 +633,7 @@
         height="32"
         aria-label="close icon"
       >
-        <use href="/goit-js-project-ArtistsHub/assets/icons-CHuY687n.svg#close"></use>
+        <use href="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg#close"></use>
       </svg>
     </button>
     <div class="artist-modal-content"></div>
