@@ -31,9 +31,11 @@
                 minlength="3"
                 3
               />
-              <svg class="filters-search-icon" width="24" height="24">
-                <use href="img/icons.svg#search"></use>
-              </svg>
+              <button class="search-btn" type="submit">
+                <svg class="filters-search-icon" width="24" height="24">
+                  <use href="img/icons.svg#search"></use>
+                </svg>
+              </button>
             </div>
             <div class="sorting-dropdown js-dropdown">
               <button
@@ -93,7 +95,22 @@
           </form>
         </div>
       </div>
-      <ul class="artists-list"></ul>
+      <div class="artists-list-content">
+        <ul class="artists-list"></ul>
+        <div class="empty-state">
+          <span class="empty-state-icon">
+            <svg width="40" height="40">
+              <use href="img/icons.svg#info"></use>
+            </svg>
+          </span>
+          <h3 class="empty-state-title">Silence on the stage...</h3>
+          <p class="empty-state-text">
+            Looks like no artists match your filters.<br />Try changing them or
+            hit “Reset Filters” to bring back the beat.
+          </p>
+          <button class="reset-filters-btn" type="button">Reset filters</button>
+        </div>
+      </div>
     </div>
     <div class="loader-wrapper">
       <div class="loader is-hidden"></div>

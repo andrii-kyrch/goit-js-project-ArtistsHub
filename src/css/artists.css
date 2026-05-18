@@ -41,6 +41,7 @@
 
 .filters-panel {
   position: relative;
+  margin-bottom: 16px;
 }
 
 .filters-toggle {
@@ -135,15 +136,19 @@
   }
 }
 
-.filters-search-icon {
+.search-btn {
   position: absolute;
   top: 12px;
   left: 12px;
-  fill: var(--color-text);
+  display: block;
+  padding: 0;
+  line-height: 0;
+  background-color: transparent;
+  border: none;
 }
 
-.sorting-dropdown,
-.genre-dropdown {
+.filters-search-icon {
+  fill: var(--color-text);
 }
 
 .sorting-toggle,
@@ -192,10 +197,6 @@
   max-height: 0;
   padding: 0 8px;
   overflow-y: auto;
-
-  /* scrollbar-color: rgb(255 255 255 / 10%) transparent; */
-
-  /* scrollbar-width: thin; */
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 16px;
   transform: translateY(-10px);
@@ -206,22 +207,6 @@
     padding 300ms ease,
     visibility 300ms;
 }
-
-/* .sorting-list::-webkit-scrollbar,
-.genre-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-.sorting-list::-webkit-scrollbar-track,
-.genre-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.sorting-list::-webkit-scrollbar-thumb,
-.genre-list::-webkit-scrollbar-thumb {
-  background-color: rgb(255 255 255 / 10%);
-  border-radius: 4px;
-} */
 
 .sorting-dropdown.is-open .sorting-list,
 .genre-dropdown.is-open .genre-list {
@@ -259,11 +244,14 @@
   pointer-events: none;
 }
 
+.artists-list-content {
+  width: 100%;
+}
+
 .artists-list {
   display: flex;
   flex-direction: column;
   row-gap: 64px;
-  margin-bottom: 32px;
 }
 
 .artist-photo {
@@ -324,6 +312,70 @@
 
   &:active {
     opacity: 0.2;
+  }
+}
+
+.empty-state {
+  display: none;
+  flex-direction: column;
+  row-gap: 24px;
+  padding: 16px;
+  background-color: #23132b;
+  border-radius: 16px;
+}
+
+.empty-state.is-visible {
+  display: flex;
+}
+
+.empty-state-icon svg {
+  display: block;
+  fill: var(--color-text);
+}
+
+.empty-state-title {
+  font-family: var(--second-family);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.empty-state-text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.reset-filters-btn {
+  padding: 10px 24px;
+  line-height: 1.5;
+  color: inherit;
+  background-color: #764191;
+  border: none;
+  border-radius: 12px;
+  box-shadow:
+    0 1px 2px 0 rgb(6 3 7 / 5%),
+    inset 0 -2px 1px 0 rgb(0 0 0 / 20%),
+    inset 0 0 0 1px rgb(6 3 7 / 15%),
+    inset 0 2px 1px 0 rgb(255 255 255 / 25%),
+    inset 0 32px 24px 0 rgb(255 255 255 / 5%);
+  transition:
+    opacity 250ms linear,
+    box-shadow 250ms linear;
+
+  &:hover,
+  :focus-visible {
+    opacity: 0.6;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #764191;
+    outline-offset: 3px;
+  }
+
+  &:active {
+    box-shadow: 0 1px 2px 0 rgb(6 3 7 / 5%);
   }
 }
 
@@ -396,6 +448,10 @@
   opacity: 0;
 }
 
+.load-more-btn {
+  margin-top: 32px;
+}
+
 .load-more-btn.is-hidden {
   visibility: hidden;
   opacity: 0;
@@ -417,15 +473,28 @@
 
   .artists-list {
     row-gap: 32px;
-    margin-bottom: 64px;
   }
 
   .artist-photo {
     min-height: 433px;
   }
 
+  .empty-state {
+    padding: 32px;
+  }
+
+  .empty-state-title {
+    font-size: 48px;
+  }
+
+  .reset-filters-btn {
+    align-self: flex-start;
+    min-width: 148px;
+  }
+
   .load-more-btn {
     min-width: 340px;
+    margin-top: 64px;
     margin-right: auto;
     margin-left: auto;
   }
@@ -449,16 +518,18 @@
   }
 
   .artists-content {
-    flex-direction: row;
+    flex-flow: row nowrap;
     column-gap: 32px;
+    align-items: flex-start;
   }
 
   .filters {
-    flex-shrink: 0;
+    position: sticky;
+    top: 152px;
+    flex: 0 0 304px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 304px;
   }
 
   .filters-toggle {
@@ -475,16 +546,27 @@
   }
 
   .artists-list {
-    flex-grow: 1;
+    flex: 1;
     flex-flow: row wrap;
     gap: 32px;
+
+    /* margin-left: auto; */
   }
 
   .artists-item {
-    width: calc((100% - 32px) / 2);
+    flex: 0 0 calc((100% - 32px) / 2);
   }
 
   .load-more-btn {
     min-width: 170px;
+  }
+
+  .empty-state {
+    flex: 1;
+    margin-left: auto;
+  }
+
+  .reset-filters-btn {
+    flex: 1;
   }
 }

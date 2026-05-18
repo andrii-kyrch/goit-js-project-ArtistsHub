@@ -7,13 +7,9 @@ const FEEDBACKS_ENDPOINT = `/feedbacks/`;
 const GENRE_END_POINT = `/genres/`;
 const API_KEY = '';
 
-export async function getArtists({
-  perPage,
-  page,
-  name,
-  sortName,
-  genre,
-} = {}) {
+export async function getArtists(objParams) {
+  const { perPage, page, searchQuery: name, sortName, genre } = objParams;
+
   const url = BASE_URL + ARTISTS_END_POINT;
 
   const params = { limit: perPage, page, name, sortName, genre };

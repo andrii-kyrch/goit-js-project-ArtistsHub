@@ -12,6 +12,13 @@ const perPage = 8;
 let page = 1;
 let sortName;
 let genre;
+let searchQuery;
+
+refs.filtersMenu.addEventListener('submit', e => {
+  e.preventDefault();
+  searchQuery = e.target.elements.search.value;
+  reloadArtists();
+});
 
 async function loadInitialData() {
   showLoader();
@@ -23,7 +30,12 @@ async function loadInitialData() {
 
     const { artists, totalArtists } = artistsResponse;
     const maxPage = Math.ceil(totalArtists / perPage);
-    createArtistsList(artists);
+    if (artists.length === 0) {
+      refs.emptyState.classList.add('is-visible');
+    } else {
+      refs.emptyState.classList.remove('is-visible');
+      createArtistsList(artists);
+    }
     updateLoadMoreVisibility(page, maxPage);
 
     createGenresList(genresResponse);
@@ -50,8 +62,9 @@ async function loadMoreArtists() {
     scrollArtists();
   } catch (error) {
     console.error('Error loading more artists:', error);
+  } finally {
+    hideLoader();
   }
-  hideLoader();
 }
 
 async function reloadArtists() {
@@ -60,13 +73,19 @@ async function reloadArtists() {
   showLoader();
   try {
     const { artists, totalArtists } = await getArtists({
+      searchQuery,
       perPage,
       page,
       sortName,
       genre,
     });
     const maxPage = Math.ceil(totalArtists / perPage);
-    createArtistsList(artists);
+    if (artists.length === 0) {
+      refs.emptyState.classList.add('is-visible');
+    } else {
+      refs.emptyState.classList.remove('is-visible');
+      createArtistsList(artists);
+    }
     updateLoadMoreVisibility(page, maxPage);
   } catch (error) {
     console.error('Error reloading artists:', error);

@@ -19,4 +19,6 @@ export const refs = {
   filtersToggle: document.querySelector('.filters-toggle'),
   filtersMenu: document.querySelector('.filters-menu'),
   filtersPanel: document.querySelector('.filters-panel'),
+  emptyState: document.querySelector('.empty-state'),
+  inputSearch: document.querySelector('.filters-search'),
 };
