@@ -1,104 +1,104 @@
-import{a as g,S as G,N as Y,K as Q}from"./assets/vendor-BiXr4j9g.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))i(r);new MutationObserver(r=>{for(const o of r)if(o.type==="childList")for(const l of o.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&i(l)}).observe(document,{childList:!0,subtree:!0});function a(r){const o={};return r.integrity&&(o.integrity=r.integrity),r.referrerPolicy&&(o.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?o.credentials="include":r.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function i(r){if(r.ep)return;r.ep=!0;const o=a(r);fetch(r.href,o)}})();const s={artistsListContainer:document.querySelector(".artists-list"),loadMoreBtn:document.querySelector(".load-more-btn"),loader:document.querySelector(".loader"),artistDetailsModal:document.querySelector(".js-artist-details-backdrop"),artistDetailsContainer:document.querySelector(".artist-modal-content"),feedbacksContainer:document.querySelector(".swiper-wrapper"),paginationDotFirst:document.querySelector(".dot-first"),paginationDotMiddle:document.querySelector(".dot-middle"),paginationDotLast:document.querySelector(".dot-last"),modalLoader:document.querySelector(".modal-loader-wrapper .loader"),artistModal:document.querySelector(".artist-modal"),genreList:document.querySelector(".genre-list"),mobileMenuOpenBtn:document.querySelector(".mobile-menu-open-btn"),mobileMenuCloseBtn:document.querySelector(".mobile-menu-close-btn"),mobileMenu:document.querySelector(".mobile-menu"),mobileMenuLinks:document.querySelectorAll(".mobile-menu-link"),filtersToggle:document.querySelector(".filters-toggle"),filtersMenu:document.querySelector(".filters-menu"),filtersPanel:document.querySelector(".filters-panel"),emptyState:document.querySelector(".empty-state"),inputSearch:document.querySelector(".filters-search"),filtersResetBtn:document.querySelector(".filters-reset-btn")};s.mobileMenuOpenBtn.addEventListener("click",()=>{s.mobileMenu.classList.add("is-open"),document.body.classList.add("modal-open")});s.mobileMenuCloseBtn.addEventListener("click",()=>{s.mobileMenu.classList.remove("is-open"),document.body.classList.remove("modal-open")});s.mobileMenuLinks.forEach(t=>{t.addEventListener("click",()=>{s.mobileMenu.classList.remove("is-open"),document.body.classList.remove("modal-open")})});const v="https://sound-wave.b.goit.study/api",D="/artists/",U="/albums/",W="/feedbacks/",V="/genres/";async function L(t){const{perPage:e,page:a,searchQuery:i,sortName:r,genre:o}=t,l=v+D,b={limit:e,page:a,name:i,sortName:r,genre:o};return(await g.get(l,{params:b})).data}async function z(){const t=v+W,e={limit:10};return(await g.get(t,{params:e})).data}async function J(t){const e=v+D+t+U,a={};return(await g.get(e,{params:a})).data}async function X(){const t=v+V;return(await g.get(t)).data}const n="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg";function q(t){return t.map(e=>`<li class="artist-genres-item">${e}</li>`).join("")}function Z(t){const{_id:e,strArtist:a,strArtistThumb:i,strBiographyEN:r,genres:o}=t,l=q(o);return`<li class="artists-item">
+import{a as f,S as H,N as Q,K as G}from"./assets/vendor-BiXr4j9g.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))i(r);new MutationObserver(r=>{for(const n of r)if(n.type==="childList")for(const c of n.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&i(c)}).observe(document,{childList:!0,subtree:!0});function a(r){const n={};return r.integrity&&(n.integrity=r.integrity),r.referrerPolicy&&(n.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?n.credentials="include":r.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function i(r){if(r.ep)return;r.ep=!0;const n=a(r);fetch(r.href,n)}})();const s={artistsListContainer:document.querySelector(".artists-list"),loadMoreBtn:document.querySelector(".load-more-btn"),loader:document.querySelector(".loader"),artistDetailsModal:document.querySelector(".js-artist-details-backdrop"),artistDetailsContainer:document.querySelector(".artist-modal-content"),feedbacksContainer:document.querySelector(".swiper-wrapper"),paginationDotFirst:document.querySelector(".dot-first"),paginationDotMiddle:document.querySelector(".dot-middle"),paginationDotLast:document.querySelector(".dot-last"),modalLoader:document.querySelector(".modal-loader-wrapper .loader"),artistModal:document.querySelector(".artist-modal"),genreList:document.querySelector(".genre-list"),mobileMenuOpenBtn:document.querySelector(".mobile-menu-open-btn"),mobileMenuCloseBtn:document.querySelector(".mobile-menu-close-btn"),mobileMenu:document.querySelector(".mobile-menu"),mobileMenuLinks:document.querySelectorAll(".mobile-menu-link"),filtersToggle:document.querySelector(".filters-toggle"),filtersMenu:document.querySelector(".filters-menu"),filtersPanel:document.querySelector(".filters-panel"),emptyState:document.querySelector(".empty-state"),inputSearch:document.querySelector(".filters-search"),filtersResetBtn:document.querySelector(".filters-reset-btn")};s.mobileMenuOpenBtn.addEventListener("click",()=>{s.mobileMenu.classList.add("is-open"),document.body.classList.add("modal-open")});s.mobileMenuCloseBtn.addEventListener("click",()=>{s.mobileMenu.classList.remove("is-open"),document.body.classList.remove("modal-open")});s.mobileMenuLinks.forEach(e=>{e.addEventListener("click",()=>{s.mobileMenu.classList.remove("is-open"),document.body.classList.remove("modal-open")})});const p="https://sound-wave.b.goit.study/api",D="/artists/",U="/albums/",Y="/feedbacks/",W="/genres/";async function b(e){const{perPage:t,page:a,searchQuery:i,sortName:r,genre:n}=e,c=p+D,v={limit:t,page:a,name:i,sortName:r,genre:n};return(await f.get(c,{params:v})).data}async function z(){const e=p+Y,t={limit:10};return(await f.get(e,{params:t})).data}async function V(e){const t=p+D+e+U,a={};return(await f.get(t,{params:a})).data}async function J(){const e=p+W;return(await f.get(e)).data}const o="/goit-js-project-ArtistsHub/assets/icons-B_KhKWnp.svg";function A(e){return e.map(t=>`<li class="artist-genres-item">${t}</li>`).join("")}function X(e){const{_id:t,strArtist:a,strArtistThumb:i,strBiographyEN:r,genres:n}=e,c=A(n);return`<li class="artists-item">
         <img
           src="${i}"
           alt="Artist ${a}"
           class="artist-photo"
         />
         <ul class="artist-genres-list">
-          ${l}
+          ${c}
         </ul>
         <h3 class="artist-name">${a}</h3>
         <p class="artist-text">
           ${(r||"").split(" ").slice(0,10).join(" ")} ...
         </p>
-        <button class="artist-btn" data-artist-id="${e}">
+        <button class="artist-btn" data-artist-id="${t}">
           Learn More
           <svg class="artist-btn-icon" width="24" height="24">
-            <use href="${n}#caret-right"></use>
+            <use href="${o}#caret-right"></use>
           </svg>
         </button>
-      </li>`}function M(t){const e=t.map(Z).join("");s.artistsListContainer.insertAdjacentHTML("beforeend",e)}function k(){s.loader.classList.remove("is-hidden")}function S(){s.loader.classList.add("is-hidden")}function tt(){s.modalLoader.classList.remove("is-hidden")}function et(){s.modalLoader.classList.add("is-hidden")}function $(t,e){t<e?s.loadMoreBtn.classList.remove("is-hidden"):s.loadMoreBtn.classList.add("is-hidden")}function st(t){const{name:e,descr:a,rating:i}=t;return`<div class="swiper-slide">
+      </li>`}function y(e){const t=e.map(X).join("");s.artistsListContainer.insertAdjacentHTML("beforeend",t)}function L(){s.loader.classList.remove("is-hidden")}function M(){s.loader.classList.add("is-hidden")}function Z(){s.modalLoader.classList.remove("is-hidden")}function ee(){s.modalLoader.classList.add("is-hidden")}function k(e,t){e<t?s.loadMoreBtn.classList.remove("is-hidden"):s.loadMoreBtn.classList.add("is-hidden")}function te(e){const{name:t,descr:a,rating:i}=e;return`<div class="swiper-slide">
   <div class="feedback-item">
     <div class="feedback-rating rating star-svg value-${Math.round(i)} color-default">
       <div class="star-container">
         <div class="star">
           <svg class="star-empty">
-            <use href="${n}#star-empty"></use>
+            <use href="${o}#star-empty"></use>
           </svg>
           <svg class="star-half">
-            <use href="${n}#star-half"></use>
+            <use href="${o}#star-half"></use>
           </svg>
           <svg class="star-filled">
-            <use href="${n}#star-filled"></use>
+            <use href="${o}#star-filled"></use>
           </svg>
         </div>
         <div class="star">
           <svg class="star-empty">
-            <use href="${n}#star-empty"></use>
+            <use href="${o}#star-empty"></use>
           </svg>
           <svg class="star-half">
-            <use href="${n}#star-half"></use>
+            <use href="${o}#star-half"></use>
           </svg>
           <svg class="star-filled">
-            <use href="${n}#star-filled"></use>
+            <use href="${o}#star-filled"></use>
           </svg>
         </div>
         <div class="star">
           <svg class="star-empty">
-            <use href="${n}#star-empty"></use>
+            <use href="${o}#star-empty"></use>
           </svg>
           <svg class="star-half">
-            <use href="${n}#star-half"></use>
+            <use href="${o}#star-half"></use>
           </svg>
           <svg class="star-filled">
-            <use href="${n}#star-filled"></use>
+            <use href="${o}#star-filled"></use>
           </svg>
         </div>
         <div class="star">
           <svg class="star-empty">
-            <use href="${n}#star-empty"></use>
+            <use href="${o}#star-empty"></use>
           </svg>
           <svg class="star-half">
-            <use href="${n}#star-half"></use>
+            <use href="${o}#star-half"></use>
           </svg>
           <svg class="star-filled">
-            <use href="${n}#star-filled"></use>
+            <use href="${o}#star-filled"></use>
           </svg>
         </div>
         <div class="star">
           <svg class="star-empty">
-            <use href="${n}#star-empty"></use>
+            <use href="${o}#star-empty"></use>
           </svg>
           <svg class="star-half">
-            <use href="${n}#star-half"></use>
+            <use href="${o}#star-half"></use>
           </svg>
           <svg class="star-filled">
-            <use href="${n}#star-filled"></use>
+            <use href="${o}#star-filled"></use>
           </svg>
         </div>
       </div>
     </div>
     <p class="feedback-message">"${a}"</p>
-    <p class="feedback-author-name">${e}</p>
+    <p class="feedback-author-name">${t}</p>
   </div>
-</div>`}function at(t){const e=t.map(st).join("");s.feedbacksContainer.innerHTML=e}function rt(t){const e=Math.floor(t/1e3),a=Math.floor(e/60),i=e%60,r=i<10?`0${i}`:i;return`${a}:${r}`}function it(t){const{strArtist:e,strArtistThumb:a,intFormedYear:i,intDiedYear:r,strGender:o,intMembers:l,strCountry:b,strBiographyEN:E,genres:P,albumsList:N}=t,I=q(P),x=N.map(O=>{const{strAlbum:R,tracks:j}=O,_=j.map(F=>{const{intDuration:K,movie:A,strTrack:H}=F;return`<tr class="artist-modal-album-row">
-                  <td class="artist-modal-album-track col-1">${H}</td>
-                  <td class="artist-modal-album-time col-2">${rt(K)}</td>
+</div>`}function se(e){const t=e.map(te).join("");s.feedbacksContainer.innerHTML=t}function ae(e){const t=Math.floor(e/1e3),a=Math.floor(t/60),i=t%60,r=i<10?`0${i}`:i;return`${a}:${r}`}function re(e){const{strArtist:t,strArtistThumb:a,intFormedYear:i,intDiedYear:r,strGender:n,intMembers:c,strCountry:v,strBiographyEN:$,genres:C,albumsList:N}=e,P=A(C),I=N.map(O=>{const{strAlbum:x,tracks:R}=O,j=R.map(F=>{const{intDuration:_,movie:E,strTrack:K}=F;return`<tr class="artist-modal-album-row">
+                  <td class="artist-modal-album-track col-1">${K}</td>
+                  <td class="artist-modal-album-time col-2">${ae(_)}</td>
                   <td class="artist-modal-album-link col-3">
-                  ${A?`<a
+                  ${E?`<a
                       class="clip-link"
-                      href="${A}"
+                      href="${E}"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <svg width="24" height="24">
-                        <use href="${n}#youtube"></use>
+                        <use href="${o}#youtube"></use>
                       </svg>
                     </a>`:""} 
                   </td>
                 </tr>`}).join("");return`<li class="artist-modal-album-card">
             <table class="artist-modal-album-table">
-              <caption class="artist-modal-album-name">${R}</caption>
+              <caption class="artist-modal-album-name">${x}</caption>
               <thead>
                 <tr class="artist-modal-album-row">
                   <th class="artist-modal-album-th col-1">Track</th>
@@ -107,16 +107,16 @@ import{a as g,S as G,N as Y,K as Q}from"./assets/vendor-BiXr4j9g.js";(function()
                 </tr>
               </thead>
               <tbody>
-                ${_}
+                ${j}
               </tbody>
             </table>
-          </li>`}).join("");return`<h2 class="artist-modal-name">${e}</h2>
+          </li>`}).join("");return`<h2 class="artist-modal-name">${t}</h2>
 
   <div class="artist-modal-info-wrapper">
     <img
       class="artist-modal-photo"
       src="${a}"
-      alt="Photo ${e}"
+      alt="Photo ${t}"
     />
     <div class="artist-modal-info-block">
       <div class="artist-modal-info-list">
@@ -126,25 +126,25 @@ import{a as g,S as G,N as Y,K as Q}from"./assets/vendor-BiXr4j9g.js";(function()
         </dl>
         <dl class="artist-modal-info-item">
           <dt class="artist-modal-info-label">Sex</dt>
-          <dd class="artist-modal-info-value">${o}</dd>
+          <dd class="artist-modal-info-value">${n}</dd>
         </dl>
         <dl class="artist-modal-info-item">
           <dt class="artist-modal-info-label">Members</dt>
-          <dd class="artist-modal-info-value">${l}</dd>
+          <dd class="artist-modal-info-value">${c}</dd>
         </dl>
         <dl class="artist-modal-info-item">
           <dt class="artist-modal-info-label">Country</dt>
-          <dd class="artist-modal-info-value">${b}</dd>
+          <dd class="artist-modal-info-value">${v}</dd>
         </dl>
       </div>
       <dl class="artist-modal-bio">
         <dt class="artist-modal-bio-label">Biography</dt>
-        <dd class="artist-modal-bio-value">${E}</dd>
+        <dd class="artist-modal-bio-value">${$}</dd>
       </dl>
-      <ul class="artist-modal-genres-list artist-genres-list">${I}</ul>
+      <ul class="artist-modal-genres-list artist-genres-list">${P}</ul>
     </div>
   </div>
   <h3 class="artist-modal-albums-title">Albums</h3>
-  <ul class="artist-modal-album-cards">${x}</ul>`}function ot(t){const e=it(t);s.artistDetailsContainer.innerHTML=e}function nt({genre:t}){return`<li class="genre-item" tabindex="0" role="option"
-                aria-selected="false">${t}</li>`}function lt(t){const e=t.toSorted((a,i)=>a.genre.localeCompare(i.genre)).map(nt).join("");s.genreList.innerHTML=e}const u=8;let c=1,m,f,h;s.filtersMenu.addEventListener("submit",t=>{t.preventDefault(),h=t.target.elements.search.value,p()});async function ct(){k();try{const[t,e]=await Promise.all([L({perPage:u,page:c,sortName:m,genre:f}),X()]),{artists:a,totalArtists:i}=t,r=Math.ceil(i/u);a.length===0?s.emptyState.classList.add("is-visible"):(s.emptyState.classList.remove("is-visible"),M(a)),$(c,r),lt(e)}catch(t){console.error("Error loading initial data:",t)}finally{S()}}async function dt(){c++,k();try{const{artists:t,totalArtists:e}=await L({perPage:u,page:c,sortName:m,genre:f}),a=Math.ceil(e/u);M(t),$(c,a),ft()}catch(t){console.error("Error loading more artists:",t)}finally{S()}}async function p(){c=1,s.artistsListContainer.innerHTML="",k();try{const{artists:t,totalArtists:e}=await L({searchQuery:h,perPage:u,page:c,sortName:m,genre:f}),a=Math.ceil(e/u);t.length===0?s.emptyState.classList.add("is-visible"):(s.emptyState.classList.remove("is-visible"),M(t)),$(c,a),mt()}catch(t){console.error("Error reloading artists:",t)}finally{S()}}function ut(){h=void 0,m=void 0,f=void 0,s.filtersMenu.reset(),s.filtersMenu.querySelectorAll(".sorting-item").forEach(a=>{const i=!a.dataset.sort;a.classList.toggle("is-active",i),a.setAttribute("aria-selected",i)}),s.filtersMenu.querySelectorAll(".genre-item").forEach(a=>{a.classList.remove("is-active"),a.setAttribute("aria-selected","false")}),p()}ct();s.loadMoreBtn.addEventListener("click",dt);s.filtersResetBtn&&s.filtersResetBtn.addEventListener("click",ut);function mt(){const t=!!(h||m||f);s.filtersResetBtn&&(s.filtersResetBtn.disabled=!t)}function ft(){const t=s.artistsListContainer.firstElementChild;if(!t)return;const e=t.getBoundingClientRect().height;scrollBy({behavior:"smooth",top:e})}const d=t=>{!s.filtersPanel.contains(t.target)&&!s.filtersMenu.contains(t.target)&&(s.filtersMenu.querySelectorAll(".is-open").forEach(a=>{a.classList.remove("is-open")}),s.filtersPanel.classList.remove("is-open"),document.removeEventListener("click",d))};s.filtersPanel.addEventListener("click",t=>{if(!t.target.closest(".filters-toggle"))return;const e=s.filtersPanel.classList.toggle("is-open");s.filtersToggle.setAttribute("aria-expanded",e),e?document.addEventListener("click",d):document.removeEventListener("click",d)});s.filtersMenu.addEventListener("click",pt);function pt(t){const e=t.target.closest(".sorting-item, .genre-item");if(e){gt(e);return}vt(t.target)}function gt(t){var i;const e=t.parentElement.querySelector(".is-active");e&&(e.classList.remove("is-active"),e.setAttribute("aria-selected","false")),t.classList.add("is-active"),t.setAttribute("aria-selected","true"),t.classList.contains("sorting-item")&&(m=t.dataset.sort,p()),t.classList.contains("genre-item")&&(f=t.textContent.toLowerCase().trim(),p());const a=t.closest(".js-dropdown");a&&(a.classList.remove("is-open"),(i=a.querySelector("button"))==null||i.setAttribute("aria-expanded","false"),window.getComputedStyle(s.filtersToggle).display==="none"&&document.removeEventListener("click",d))}function vt(t){var l;const e=t.closest("button");if(!e)return;const a=e.closest(".js-dropdown");if(!a)return;const i=window.getComputedStyle(s.filtersToggle).display==="none",r=s.filtersMenu.querySelector(".is-open");r&&r!==a&&(r.classList.remove("is-open"),(l=r.querySelector("button"))==null||l.setAttribute("aria-expanded","false"),i&&document.removeEventListener("click",d));const o=a.classList.toggle("is-open");e.setAttribute("aria-expanded",o),i&&(o?document.addEventListener("click",d):document.removeEventListener("click",d))}function B(t){const e=t.target.closest(".modal-close-btn"),a=t.target===s.artistDetailsModal;!e&&!a||C()}function T(t){t.key==="Escape"&&C()}function C(){s.artistDetailsModal.classList.remove("is-open"),s.artistModal.classList.add("is-hidden"),document.body.classList.remove("modal-open"),s.artistDetailsModal.removeEventListener("click",B),document.removeEventListener("keydown",T)}s.artistsListContainer.addEventListener("click",async t=>{const e=t.target.closest(".artist-btn");if(!e)return;const a=e.dataset.artistId;s.artistDetailsModal.classList.add("is-open"),document.body.classList.add("modal-open"),tt();const i=await J(a);ot(i),et(),s.artistModal.classList.remove("is-hidden"),s.artistDetailsModal.scrollTop=0,s.artistDetailsModal.addEventListener("click",B),document.addEventListener("keydown",T)});async function ht(){const{data:t}=await z();at(t)}ht();new G(".swiper",{modules:[Y,Q],on:{init:w,slideChange:w},keyboard:{enabled:!0},breakpoints:{768:{navigation:{nextEl:".feedback-next-btn",prevEl:".feedback-prev-btn"}}}});function w(t){const e=t.slides.length,a=t.activeIndex,{paginationDotFirst:i,paginationDotMiddle:r,paginationDotLast:o}=s;i.classList.remove("active"),r.classList.remove("active"),o.classList.remove("active"),a===0?y(i):a===e-1?y(o):y(r)}function y(t){t.classList.remove("active"),t.offsetWidth,t.classList.add("active")}
+  <ul class="artist-modal-album-cards">${I}</ul>`}function ie(e){const t=re(e);s.artistDetailsContainer.innerHTML=t}function ne({genre:e}){return`<li class="genre-item" data-genre="${e.toLowerCase()}" tabindex="0" role="option"
+                aria-selected="false">${e}</li>`}function oe(e){const t=e.toSorted((a,i)=>a.genre.localeCompare(i.genre)).map(ne).join("");s.genreList.innerHTML=t}const m=8;let d=1;const l={sortName:void 0,genre:void 0,searchQuery:void 0};s.filtersMenu.addEventListener("submit",e=>{e.preventDefault(),l.searchQuery=e.target.elements.search.value,S()});async function le(){L();try{const[e,t]=await Promise.all([b({perPage:m,page:d,...l}),J()]),{artists:a,totalArtists:i}=e,r=Math.ceil(i/m);a.length===0?s.emptyState.classList.add("is-visible"):(s.emptyState.classList.remove("is-visible"),y(a)),k(d,r),oe(t),g()}catch(e){console.error("Error loading initial data:",e)}finally{M()}}async function ce(){d++,L();try{const{artists:e,totalArtists:t}=await b({perPage:m,page:d,...l}),a=Math.ceil(t/m);y(e),k(d,a),me()}catch(e){console.error("Error loading more artists:",e)}finally{M()}}async function S(){d=1,s.artistsListContainer.innerHTML="",L();try{const{artists:e,totalArtists:t}=await b({perPage:m,page:d,...l}),a=Math.ceil(t/m);e.length===0?s.emptyState.classList.add("is-visible"):(s.emptyState.classList.remove("is-visible"),y(e)),k(d,a),g()}catch(e){console.error("Error reloading artists:",e)}finally{M()}}function g(){s.inputSearch.value=l.searchQuery||"",s.filtersMenu.querySelectorAll(".sorting-item, .genre-item").forEach(t=>{let a=!1;t.classList.contains("sorting-item")?a=t.dataset.sort===l.sortName:t.classList.contains("genre-item")&&(a=t.dataset.genre===l.genre),t.classList.toggle("is-active",a),t.setAttribute("aria-selected",a.toString())}),ue()}function de(){l.searchQuery=void 0,l.sortName=void 0,l.genre=void 0,s.filtersMenu.reset(),g(),S()}le();s.loadMoreBtn.addEventListener("click",ce);s.filtersResetBtn&&s.filtersResetBtn.addEventListener("click",de);function ue(){const e=!!(l.searchQuery||l.sortName||l.genre);s.filtersResetBtn&&(s.filtersResetBtn.disabled=!e)}function me(){const e=s.artistsListContainer.firstElementChild;if(!e)return;const t=e.getBoundingClientRect().height;scrollBy({behavior:"smooth",top:t})}const u=e=>{!s.filtersPanel.contains(e.target)&&!s.filtersMenu.contains(e.target)&&(s.filtersMenu.querySelectorAll(".is-open").forEach(a=>{a.classList.remove("is-open")}),s.filtersPanel.classList.remove("is-open"),document.removeEventListener("click",u))};s.filtersPanel.addEventListener("click",e=>{if(!e.target.closest(".filters-toggle"))return;const t=s.filtersPanel.classList.toggle("is-open");s.filtersToggle.setAttribute("aria-expanded",t),t?document.addEventListener("click",u):document.removeEventListener("click",u)});s.filtersMenu.addEventListener("click",fe);function fe(e){const t=e.target.closest(".sorting-item, .genre-item");if(t){pe(t);return}ge(e.target)}function pe(e){var a;e.parentElement.querySelector(".is-active"),e.classList.contains("sorting-item")?l.sortName=e.dataset.sort:e.classList.contains("genre-item")&&(l.genre=e.dataset.genre),g(),S();const t=e.closest(".js-dropdown");t&&(t.classList.remove("is-open"),(a=t.querySelector("button"))==null||a.setAttribute("aria-expanded","false"),window.getComputedStyle(s.filtersToggle).display==="none"&&document.removeEventListener("click",u))}function ge(e){var c;const t=e.closest("button");if(!t)return;const a=t.closest(".js-dropdown");if(!a)return;const i=window.getComputedStyle(s.filtersToggle).display==="none",r=s.filtersMenu.querySelector(".is-open");r&&r!==a&&(r.classList.remove("is-open"),(c=r.querySelector("button"))==null||c.setAttribute("aria-expanded","false"),i&&document.removeEventListener("click",u));const n=a.classList.toggle("is-open");t.setAttribute("aria-expanded",n),i&&(n?document.addEventListener("click",u):document.removeEventListener("click",u))}function q(e){const t=e.target.closest(".modal-close-btn"),a=e.target===s.artistDetailsModal;!t&&!a||T()}function B(e){e.key==="Escape"&&T()}function T(){s.artistDetailsModal.classList.remove("is-open"),s.artistModal.classList.add("is-hidden"),document.body.classList.remove("modal-open"),s.artistDetailsModal.removeEventListener("click",q),document.removeEventListener("keydown",B)}s.artistsListContainer.addEventListener("click",async e=>{const t=e.target.closest(".artist-btn");if(!t)return;const a=t.dataset.artistId;s.artistDetailsModal.classList.add("is-open"),document.body.classList.add("modal-open"),Z();const i=await V(a);ie(i),ee(),s.artistModal.classList.remove("is-hidden"),s.artistDetailsModal.scrollTop=0,s.artistDetailsModal.addEventListener("click",q),document.addEventListener("keydown",B)});async function ve(){const{data:e}=await z();se(e)}ve();new H(".swiper",{modules:[Q,G],on:{init:w,slideChange:w},keyboard:{enabled:!0},breakpoints:{768:{navigation:{nextEl:".feedback-next-btn",prevEl:".feedback-prev-btn"}}}});function w(e){const t=e.slides.length,a=e.activeIndex,{paginationDotFirst:i,paginationDotMiddle:r,paginationDotLast:n}=s;i.classList.remove("active"),r.classList.remove("active"),n.classList.remove("active"),a===0?h(i):a===t-1?h(n):h(r)}function h(e){e.classList.remove("active"),e.offsetWidth,e.classList.add("active")}
 //# sourceMappingURL=index.js.map
