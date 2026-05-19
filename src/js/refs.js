@@ -20,6 +20,7 @@ export const refs = {
   filtersMenu: document.querySelector('.filters-menu'),
   filtersPanel: document.querySelector('.filters-panel'),
   emptyState: document.querySelector('.empty-state'),
+  resetEmptyStateBtn: document.querySelector('.reset-empty-state-btn'),
   inputSearch: document.querySelector('.filters-search'),
   filtersResetBtn: document.querySelector('.filters-reset-btn'),
 };

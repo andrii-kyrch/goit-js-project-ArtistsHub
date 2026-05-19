@@ -351,7 +351,7 @@
   line-height: 1.5;
 }
 
-.reset-filters-btn {
+.reset-empty-state-btn {
   padding: 10px 24px;
   line-height: 1.5;
   color: inherit;
@@ -491,7 +491,7 @@
     font-size: 48px;
   }
 
-  .reset-filters-btn {
+  .reset-empty-state-btn {
     align-self: flex-start;
     min-width: 148px;
   }
@@ -602,7 +602,7 @@
     margin-left: auto;
   }
 
-  .reset-filters-btn {
+  .reset-empty-state-btn {
     flex: 1;
   }
 }
