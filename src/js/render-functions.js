@@ -265,7 +265,7 @@ export function createArtistDetails(artistInfo) {
 }
 
 function genreItemTemplate({ genre }) {
-  return /*html*/ `<li class="genre-item" tabindex="0" role="option"
+  return /*html*/ `<li class="genre-item" data-genre="${genre.toLowerCase()}" tabindex="0" role="option"
                 aria-selected="false">${genre}</li>`;
 }
 

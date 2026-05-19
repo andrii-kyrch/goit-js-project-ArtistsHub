@@ -10,13 +10,16 @@ import {
 
 const perPage = 8;
 let page = 1;
-let sortName;
-let genre;
-let searchQuery;
+
+const filtersState = {
+  sortName: undefined,
+  genre: undefined,
+  searchQuery: undefined,
+};
 
 refs.filtersMenu.addEventListener('submit', e => {
   e.preventDefault();
-  searchQuery = e.target.elements.search.value;
+  filtersState.searchQuery = e.target.elements.search.value;
   reloadArtists();
 });
 
@@ -24,7 +27,11 @@ async function loadInitialData() {
   showLoader();
   try {
     const [artistsResponse, genresResponse] = await Promise.all([
-      getArtists({ perPage, page, sortName, genre }),
+      getArtists({
+        perPage,
+        page,
+        ...filtersState,
+      }),
       getGenres(),
     ]);
 
@@ -39,6 +46,7 @@ async function loadInitialData() {
     updateLoadMoreVisibility(page, maxPage);
 
     createGenresList(genresResponse);
+    synchronizeFiltersUI();
   } catch (error) {
     console.error('Error loading initial data:', error);
   } finally {
@@ -53,8 +61,7 @@ async function loadMoreArtists() {
     const { artists, totalArtists } = await getArtists({
       perPage,
       page,
-      sortName,
-      genre,
+      ...filtersState,
     });
     const maxPage = Math.ceil(totalArtists / perPage);
     createArtistsList(artists);
@@ -73,11 +80,9 @@ async function reloadArtists() {
   showLoader();
   try {
     const { artists, totalArtists } = await getArtists({
-      searchQuery,
       perPage,
       page,
-      sortName,
-      genre,
+      ...filtersState,
     });
     const maxPage = Math.ceil(totalArtists / perPage);
     if (artists.length === 0) {
@@ -87,7 +92,7 @@ async function reloadArtists() {
       createArtistsList(artists);
     }
     updateLoadMoreVisibility(page, maxPage);
-    updateResetButtonStatus();
+    synchronizeFiltersUI();
   } catch (error) {
     console.error('Error reloading artists:', error);
   } finally {
@@ -95,28 +100,35 @@ async function reloadArtists() {
   }
 }
 
+function synchronizeFiltersUI() {
+  refs.inputSearch.value = filtersState.searchQuery || '';
+
+  const allFilterItems = refs.filtersMenu.querySelectorAll(
+    '.sorting-item, .genre-item'
+  );
+
+  allFilterItems.forEach(item => {
+    let isActive = false;
+    if (item.classList.contains('sorting-item')) {
+      isActive = item.dataset.sort === filtersState.sortName;
+    } else if (item.classList.contains('genre-item')) {
+      isActive = item.dataset.genre === filtersState.genre;
+    }
+
+    item.classList.toggle('is-active', isActive);
+    item.setAttribute('aria-selected', isActive.toString());
+  });
+
+  updateResetButtonStatus();
+}
+
 function handleReset() {
-  searchQuery = undefined;
-  sortName = undefined;
-  genre = undefined;
+  filtersState.searchQuery = undefined;
+  filtersState.sortName = undefined;
+  filtersState.genre = undefined;
 
-  // Скидаємо стандартні елементи форми (інпут пошуку)
   refs.filtersMenu.reset();
-
-  // Скидаємо UI сортування до дефолту
-  const sortingItems = refs.filtersMenu.querySelectorAll('.sorting-item');
-  sortingItems.forEach(item => {
-    const isDefault = !item.dataset.sort;
-    item.classList.toggle('is-active', isDefault);
-    item.setAttribute('aria-selected', isDefault);
-  });
-
-  // Очищуємо UI жанрів
-  const genreItems = refs.filtersMenu.querySelectorAll('.genre-item');
-  genreItems.forEach(item => {
-    item.classList.remove('is-active');
-    item.setAttribute('aria-selected', 'false');
-  });
+  synchronizeFiltersUI();
 
   reloadArtists();
 }
@@ -130,7 +142,11 @@ if (refs.filtersResetBtn) {
 }
 
 function updateResetButtonStatus() {
-  const isDirty = !!(searchQuery || sortName || genre);
+  const isDirty = !!(
+    filtersState.searchQuery ||
+    filtersState.sortName ||
+    filtersState.genre
+  );
   if (refs.filtersResetBtn) refs.filtersResetBtn.disabled = !isDirty;
 }
 
@@ -186,22 +202,14 @@ function handleFiltersMenuClick(e) {
 function handleFiltersSelection(selectedItem) {
   const prevActiveItem = selectedItem.parentElement.querySelector('.is-active');
 
-  if (prevActiveItem) {
-    prevActiveItem.classList.remove('is-active');
-    prevActiveItem.setAttribute('aria-selected', 'false');
-  }
-  selectedItem.classList.add('is-active');
-  selectedItem.setAttribute('aria-selected', 'true');
-
   if (selectedItem.classList.contains('sorting-item')) {
-    sortName = selectedItem.dataset.sort;
-    reloadArtists();
+    filtersState.sortName = selectedItem.dataset.sort;
+  } else if (selectedItem.classList.contains('genre-item')) {
+    filtersState.genre = selectedItem.dataset.genre;
   }
 
-  if (selectedItem.classList.contains('genre-item')) {
-    genre = selectedItem.textContent.toLowerCase().trim();
-    reloadArtists();
-  }
+  synchronizeFiltersUI();
+  reloadArtists();
 
   const openedDropdown = selectedItem.closest('.js-dropdown');
 
