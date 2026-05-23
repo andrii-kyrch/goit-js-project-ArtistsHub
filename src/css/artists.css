@@ -260,7 +260,7 @@
 
 .artist-photo {
   width: 100%;
-  height: 177px;
+  max-height: 177px;
   margin-bottom: 24px;
   object-fit: cover;
   object-position: center top;
@@ -480,7 +480,7 @@
   }
 
   .artist-photo {
-    min-height: 433px;
+    max-height: 432px;
   }
 
   .empty-state {
@@ -591,6 +591,10 @@
 
   .artists-item {
     flex: 0 0 calc((100% - 32px) / 2);
+  }
+
+    .artist-photo {
+    max-height: 290px;
   }
 
   .load-more-btn {
