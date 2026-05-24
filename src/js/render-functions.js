@@ -1,4 +1,4 @@
-import { refs } from './refs';
+import { refs } from './refs.js';
 import iconsPath from '../img/icons.svg?url';
 
 function artistGenresTemplate(artistGenres) {

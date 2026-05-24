@@ -36,7 +36,20 @@ async function loadMoreArtists() {
 
 async function reloadArtists() {
   page = 1;
+
+  const currentHeight = refs.artistsListContainer.offsetHeight;
+
+  refs.artistsListContainer.style.minHeight = `${currentHeight}px`;
+
+  refs.artistsListContainer.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
   await fetchAndRenderArtists();
+
+  setTimeout(() => {
+    refs.artistsListContainer.style.minHeight = '';
+  }, 500);
 }
 
 async function fetchAndRenderArtists() {

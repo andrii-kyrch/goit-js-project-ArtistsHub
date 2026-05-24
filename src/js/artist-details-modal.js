@@ -1,10 +1,10 @@
-import { refs } from './refs';
+import { refs } from './refs.js';
 import {
   createArtistDetails,
   showModalLoader,
   hideModalLoader,
-} from './render-functions';
-import { getArtistInfoById } from './sound-wave-api';
+} from './render-functions.js';
+import { getArtistInfoById } from './sound-wave-api.js';
 
 function handleModalClick(e) {
   const closeModalBtn = e.target.closest('.modal-close-btn');
@@ -37,15 +37,18 @@ refs.artistsListContainer.addEventListener('click', async e => {
   refs.artistDetailsModal.classList.add('is-open');
   document.body.classList.add('modal-open');
   showModalLoader();
+  try {
+    const artistInfo = await getArtistInfoById(artistId);
+    createArtistDetails(artistInfo);
 
-  const artistInfo = await getArtistInfoById(artistId);
+    refs.artistModal.classList.remove('is-hidden');
+    refs.artistDetailsModal.scrollTop = 0;
 
-  createArtistDetails(artistInfo);
-
-  hideModalLoader();
-  refs.artistModal.classList.remove('is-hidden');
-  refs.artistDetailsModal.scrollTop = 0;
-
-  refs.artistDetailsModal.addEventListener('click', handleModalClick);
-  document.addEventListener('keydown', handleEscapeKey);
+    refs.artistDetailsModal.addEventListener('click', handleModalClick);
+    document.addEventListener('keydown', handleEscapeKey);
+  } catch (error) {
+    console.error('Error loading artist details:', error);
+  } finally {
+    hideModalLoader();
+  }
 });

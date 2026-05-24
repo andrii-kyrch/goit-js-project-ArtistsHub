@@ -1,39 +1,45 @@
-import { refs } from './refs';
+import { refs } from './refs.js';
 import Swiper from 'swiper';
 import { Navigation, Keyboard } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { getFeedbacks } from './sound-wave-api';
-import { createFeedbacks } from './render-functions';
+import { getFeedbacks } from './sound-wave-api.js';
+import { createFeedbacks } from './render-functions.js';
+
+let swiper;
 
 async function loadFeedback() {
-  const { data } = await getFeedbacks();
-  createFeedbacks(data);
+  try {
+    const { data } = await getFeedbacks();
+    createFeedbacks(data);
+
+    swiper = new Swiper('.swiper', {
+      modules: [Navigation, Keyboard],
+
+      on: {
+        init: updateCustomPagination,
+        slideChange: updateCustomPagination,
+      },
+
+      keyboard: {
+        enabled: true,
+      },
+
+      breakpoints: {
+        768: {
+          navigation: {
+            nextEl: '.feedback-next-btn',
+            prevEl: '.feedback-prev-btn',
+          },
+        },
+      },
+    });
+  } catch (error) {
+    console.error('Error loading feedbacks:', error);
+  }
 }
 
 loadFeedback();
-
-const swiper = new Swiper('.swiper', {
-  modules: [Navigation, Keyboard],
-
-  on: {
-    init: updateCustomPagination,
-    slideChange: updateCustomPagination,
-  },
-
-  keyboard: {
-    enabled: true,
-  },
-
-  breakpoints: {
-    768: {
-      navigation: {
-        nextEl: '.feedback-next-btn',
-        prevEl: '.feedback-prev-btn',
-      },
-    },
-  },
-});
 
 function updateCustomPagination(swiper) {
   const totalSlides = swiper.slides.length;
