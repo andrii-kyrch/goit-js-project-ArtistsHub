@@ -62,8 +62,7 @@
     box-shadow 250ms linear,
     opacity 250ms linear;
 
-  &:hover,
-  &:focus {
+  &:hover {
     opacity: 0.6;
   }
 

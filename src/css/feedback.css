@@ -18,12 +18,6 @@
   align-items: center;
   justify-content: space-between;
   min-height: 210px;
-
-  /* ?=========================================== */
-
-  /* row-gap: 32px; */
-
-  /* ?=========================================== */
 }
 
 .feedback-rating {
@@ -98,8 +92,7 @@
     fill: var(--color-text);
     transition: opacity 250ms linear;
 
-    &:hover,
-    &:focus {
+    &:hover {
       opacity: 0.6;
     }
 

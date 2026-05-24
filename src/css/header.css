@@ -30,14 +30,25 @@
   padding-top: 9px;
   padding-bottom: 9px;
   fill: #764191;
+
+  &:focus-visible {
+    outline: 2px solid #764191;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
 }
 
 .menu-link,
 .mobile-menu-link {
   transition: opacity 250ms linear;
 
-  &:hover,
-  &:focus {
+  &:focus-visible {
+    outline: 2px solid #764191;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  &:hover {
     opacity: 0.6;
   }
 
@@ -102,23 +113,18 @@
   .mobile-menu-close-btn {
     padding: 12px;
     line-height: 0;
-
-    /* width: 48px; */
-
-    /* height: 48px; */
-
-    /* display: inline-flex; */
-
-    /* justify-content: center; */
-
-    /* align-items: center; */
     background-color: transparent;
     border: none;
     fill: var(--color-text);
     transition: opacity 250ms linear;
 
-    &:hover,
-    &:focus {
+    &:focus-visible {
+      outline: 2px solid #764191;
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    &:hover {
       opacity: 0.6;
     }
 

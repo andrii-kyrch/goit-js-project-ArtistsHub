@@ -9,9 +9,12 @@
   fill: var(--color-text);
   transition: opacity 250ms linear;
 
-  &:hover,
-  &:focus {
+  &:hover {
     opacity: 0.6;
+  }
+
+  &:focus-visible {
+    border-radius: 2px;
   }
 
   &:active {
@@ -26,6 +29,8 @@
 .logo-footer {
   padding: 0;
   margin-bottom: 32px;
+  display: inline-flex;
+
 }
 
 .footer-nav-list {
@@ -40,9 +45,12 @@
   font-weight: 600;
   transition: opacity 250ms linear;
 
-  &:hover,
-  &:focus {
+  &:hover {
     opacity: 0.6;
+  }
+
+  &:focus-visible {
+    border-radius: 2px;
   }
 
   &:active {
