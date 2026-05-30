@@ -253,3 +253,71 @@ function handleDropdownToggle(target) {
     }
   }
 }
+
+function handleGenreKeyboardNavigation(e) {
+  // Select focused item on Enter or Space
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.sorting-item, .genre-item')) {
+    e.preventDefault();
+    handleFiltersSelection(e.target.closest('.sorting-item, .genre-item'));
+    return;
+  }
+
+  // Ignore if user is typing in any input element (like search input)
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+    return;
+  }
+
+  // Check if the genre dropdown is open
+  const genreDropdown = refs.genreList?.closest('.js-dropdown');
+  if (!genreDropdown || !genreDropdown.classList.contains('is-open')) {
+    return;
+  }
+
+  const genreItems = Array.from(refs.genreList.querySelectorAll('.genre-item'));
+
+  // Navigate with Up and Down arrows
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    const currentIndex = genreItems.indexOf(document.activeElement);
+    let nextIndex;
+
+    if (e.key === 'ArrowDown') {
+      nextIndex = currentIndex + 1;
+      if (nextIndex >= genreItems.length) {
+        nextIndex = 0; // Wrap around to first
+      }
+    } else {
+      nextIndex = currentIndex - 1;
+      if (nextIndex < 0) {
+        nextIndex = genreItems.length - 1; // Wrap around to last
+      }
+    }
+
+    const targetItem = genreItems[nextIndex];
+    if (targetItem) {
+      targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      targetItem.focus();
+    }
+    return;
+  }
+
+  // Ignore modifier keys or non-character keys
+  if (e.key.length !== 1 || e.ctrlKey || e.metaKey || e.altKey) {
+    return;
+  }
+
+  const key = e.key.toLowerCase();
+  const targetItem = genreItems.find(item => {
+    const text = item.textContent.trim().toLowerCase();
+    return text.startsWith(key);
+  });
+
+  if (targetItem) {
+    e.preventDefault();
+    targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    targetItem.focus();
+  }
+}
+
+document.addEventListener('keydown', handleGenreKeyboardNavigation);
+

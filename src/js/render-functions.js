@@ -270,7 +270,18 @@ function genreItemTemplate({ genre }) {
 }
 
 export function createGenresList(genres) {
-  const markup = genres
+  const uniqueGenres = [];
+  const seen = new Set();
+
+  for (const item of genres) {
+    const normalized = item.genre.trim().toLowerCase();
+    if (!seen.has(normalized)) {
+      seen.add(normalized);
+      uniqueGenres.push(item);
+    }
+  }
+
+  const markup = uniqueGenres
     .toSorted((a, b) => a.genre.localeCompare(b.genre))
     .map(genreItemTemplate)
     .join('');
