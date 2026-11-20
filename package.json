@@ -5,19 +5,21 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/goit-js-project-ArtistsHub/",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
-    "glob": "^11.0.0",
+    "glob": "^14.0.6",
     "postcss": "^8.4.41",
-    "postcss-sort-media-queries": "^5.2.0",
-    "prettier": "3.6.2",
-    "stylelint": "^16.21.1",
-    "stylelint-config-recess-order": "^7.1.0",
-    "stylelint-config-standard": "^38.0.0",
-    "stylelint-order": "^7.0.0",
-    "vite": "^6.3.5"
+    "postcss-sort-media-queries": "^6.7.1",
+    "prettier": "^3.10.1",
+    "stylelint": "^18.0.0",
+    "stylelint-config-recess-order": "^7.10.1",
+    "stylelint-config-standard": "^41.0.0",
+    "stylelint-order": "^8.1.3",
+    "vite": "^8.3.8",
+    "vite-plugin-full-reload": "^1.2.0",
+    "vite-plugin-html-inject": "^1.2.0"
   },
   "author": "Andrii Kyrch <andrii.kyrch@gmail.com>",
   "license": "ISC",
@@ -25,11 +27,6 @@
     "axios": "^1.9.0",
     "css-star-rating": "^1.3.1",
     "modern-normalize": "^3.0.1",
-    "swiper": "^14.2.0",
-    "vite-plugin-full-reload": "^1.2.0",
-    "vite-plugin-html-inject": "^1.1.2"
-  },
-  "allowScripts": {
-    "esbuild@0.25.5": true
+    "swiper": "^14.2.0"
   }
 }

@@ -4,24 +4,35 @@ import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
 
-export default defineConfig(({ command }) => {
+export default defineConfig(({ command, isPreview }) => {
   return {
+    base:
+      command === 'build' || isPreview ? '/goit-js-project-ArtistsHub/' : '/',
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
     root: 'src',
-    server: {
-      host: true,
+    css: {
+      postcss: {
+        plugins: [
+          SortCss({
+            sort: 'mobile-first',
+          }),
+        ],
+      },
     },
     build: {
       sourcemap: true,
-      rollupOptions: {
-        input: glob.sync('./src/*.html'),
+      rolldownOptions: {
+        input: glob.sync('*.html', { cwd: 'src', absolute: true }),
         output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
+          codeSplitting: {
+            groups: [
+              {
+                name: 'vendor',
+                test: /node_modules/,
+              },
+            ],
           },
           entryFileNames: chunkInfo => {
             if (chunkInfo.name === 'commonHelpers') {
@@ -30,7 +41,8 @@ export default defineConfig(({ command }) => {
             return '[name].js';
           },
           assetFileNames: assetInfo => {
-            if (assetInfo.name && assetInfo.name.endsWith('.html')) {
+            const fileName = assetInfo.names?.[0] || assetInfo.name;
+            if (fileName && fileName.endsWith('.html')) {
               return '[name].[ext]';
             }
             return 'assets/[name]-[hash][extname]';
@@ -40,12 +52,6 @@ export default defineConfig(({ command }) => {
       outDir: '../dist',
       emptyOutDir: true,
     },
-    plugins: [
-      injectHTML(),
-      FullReload(['./src/**/**.html']),
-      SortCss({
-        sort: 'mobile-first',
-      }),
-    ],
+    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
   };
 });
