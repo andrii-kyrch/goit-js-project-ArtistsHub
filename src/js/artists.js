@@ -256,7 +256,10 @@ function handleDropdownToggle(target) {
 
 function handleGenreKeyboardNavigation(e) {
   // Select focused item on Enter or Space
-  if ((e.key === 'Enter' || e.key === ' ') && e.target.closest('.sorting-item, .genre-item')) {
+  if (
+    (e.key === 'Enter' || e.key === ' ') &&
+    e.target.closest('.sorting-item, .genre-item')
+  ) {
     e.preventDefault();
     handleFiltersSelection(e.target.closest('.sorting-item, .genre-item'));
     return;
@@ -320,4 +323,3 @@ function handleGenreKeyboardNavigation(e) {
 }
 
 document.addEventListener('keydown', handleGenreKeyboardNavigation);
-
